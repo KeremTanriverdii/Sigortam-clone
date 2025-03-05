@@ -1,0 +1,118 @@
+body {
+    background: #F5F7F9;
+
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.size-text-9 {
+    font-size: 12px;
+}
+
+.dropdown-menu[data-bs-popper] {
+    width: 90vw;
+    max-width: 617px;
+    margin-top: var(--bs-dropdown-spacer);
+    padding: 36px;
+
+    background-color: #F5F7F9;
+}
+
+.nav-phone {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-phone div span {
+    display: inline-block;
+    color: #717171;
+}
+
+.sx {
+    height: 350vh;
+}
+
+.nav-phone button {
+    min-height: auto !important;
+    padding: 10px 24px !important;
+}
+
+@media (max-width:992px) {
+    .dropdown-menu[data-bs-popper] {
+        width: 100%;
+        margin-bottom: 1px;
+        padding: 0px 0px 12px 0px;
+        border: none;
+        font-size: 15px;
+        min-height: 100vjh;
+    }
+
+    .navbar-brand {
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar-brand div {
+        display: flex;
+        gap: 5px;
+    }
+
+    .navbar-toggler {
+        border: none;
+    }
+
+    .navbar-brand div button {
+        cursor: pointer;
+        min-height: unset;
+        padding: 10px 22px;
+        font-size: 12px;
+    }
+
+    .nav-phone {
+        flex-direction: column;
+    }
+
+    .navbar-collapse.show #has-button {
+        display: none;
+    }
+
+    .navbar-toggler:active #has-button {
+        display: none;
+    }
+
+    .dropdown-menu[data-bs-popper] ul {
+        padding: 0;
+    }
+
+    .dropdown-menu[data-bs-popper] ul li {
+        color: #515353;
+        list-style-type: none;
+        padding: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .dropdown-menu[data-bs-popper] ul li svg {
+        display: none;
+    }
+
+    .dropdown-menu[data-bs-popper] ul li a:hover {
+        display: block;
+        background: #FAFAFA;
+    }
+}
+
+.dropdown-menu2[data-bs-popper] {
+    margin-top: var(--bs-dropdown-spacer);
+    padding: 36px;
+    width: 90vw;
+    max-width: 617px;
+    background-color: #F5F7F9;
+}

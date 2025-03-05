@@ -1,0 +1,17 @@
+.sticky-card {
+    position: fixed;
+    top: 84px;
+    right: 16px;
+    margin-top: 25px;
+}
+
+@media (max-width: 992px) {
+    .sticky-card {
+        position: relative;
+        top: 72px;
+        right: 15px;
+        left: 15px;
+        padding: 12px 16px;
+        width: calc(100% - 30px);
+    }
+}
