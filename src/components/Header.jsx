@@ -141,14 +141,13 @@ export default function Header() {
                                     <span className='size-text-9'>Yardımcı olmaya hazırız</span>
                                     <br />
                                     <FontAwesomeIcon icon={faPhone} className='' /> 444 24 00
-                                    <div className=''>
-                                    </div>
-                                    {isCollapse ? <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/damage-support.svg" alt="3sn Hasar Destek" /> : (
-                                        <Button>
-                                            <span >Giriş Yap/ Üye Ol</span>
-                                        </Button>
-                                    )}
                                 </div>
+
+                                {isCollapse ? <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/damage-support.svg" alt="3sn Hasar Destek" /> : (
+                                    <Button>
+                                        <span >Giriş Yap/ Üye Ol</span>
+                                    </Button>
+                                )}
                             </div> : (
                                 <div>2</div>
                             )

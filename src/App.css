@@ -5,6 +5,150 @@
     margin-top: 25px;
 }
 
+.section-card-list-container {
+    max-width: 890px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 auto !important;
+}
+
+.section-card-list-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px
+}
+
+.section-card-box {
+    position: relative;
+    justify-content: center;
+    margin: 10px 0;
+    padding: 0 10px !important;
+}
+
+.box-badge {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: green;
+    color: #fff;
+}
+
+.testimonials-container {
+    background-color: #F5F7F9;
+    margin-top: 72px;
+    margin-bottom: 72px;
+    padding: 72px;
+}
+
+.comment-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 72px 0;
+    /* overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; */
+}
+
+.testimonials-card {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 219px;
+    max-width: 377px;
+    padding: 32px;
+    background: #fff;
+    border-radius: 10px;
+    flex: 0 0 auto;
+    margin-right: 10px;
+}
+
+.customer-name {
+    text-align: end;
+}
+
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+.company-card-container {
+    background: #F5F7F9;
+    margin-top: 72px;
+    margin-bottom: 72px;
+    padding: 72px;
+}
+
+.company-header {
+    text-align: center;
+    padding: 72px;
+}
+
+.company-card {
+    height: 130px;
+    padding: 32px;
+    margin: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.company-card img {
+    filter: grayscale(100%);
+}
+
+.company-card:hover img {
+    filter: grayscale(0%);
+}
+
+.company-card:hover {
+    cursor: pointer;
+}
+
+.sss-container {
+    margin-top: 72px;
+    margin-bottom: 72px;
+}
+
+@media (max-width:720px) {
+    .section-card-list-box-container {
+        width: 30%;
+    }
+}
+
+.accordion {
+    border-radius: 16px;
+    width: 75% !important;
+    margin: 0 auto !important;
+}
+
+.accordion-header {
+    padding: 25px 30px;
+
+}
+
+/* Accordion bootstrap sınıfına bottom margin verildi */
+.accordion-item {
+    margin-bottom: 15px;
+}
+
+/* Accordion button sağdan boşluk bırakmak için bootstrap sınıfının içine yazıldı */
+.accordion-button::after {
+    margin-right: 25px;
+}
+
+.accordion-body {
+    padding: 0 72px;
+}
+
+.accordion-body {
+    color: #898A8A;
+    font-size: 16px;
+    line-height: 24px;
+}
+
 @media (max-width: 992px) {
     .sticky-card {
         position: relative;
@@ -13,5 +157,25 @@
         left: 15px;
         padding: 12px 16px;
         width: calc(100% - 30px);
+    }
+
+    .second {
+        order: 2;
+    }
+
+    .accordion {
+        min-width: 100%;
+    }
+
+    .first {
+        order: 1;
+        display: flex;
+        width: 50%
+    }
+
+    .company-card-container {
+        margin: 0;
+        padding: 0;
+        width: 100%;
     }
 }
