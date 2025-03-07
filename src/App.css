@@ -176,6 +176,25 @@
     font-weight: 700 !important;
 }
 
+.col ul li {
+    display: flex;
+}
+
+.col ul li a {
+    color: #717171;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.divider {
+    color: #717171;
+    font-size: 15px;
+}
+
+div ul li a {
+    color: #717171;
+}
+
 @media (max-width:376px) {
     .insures-container {
         flex-direction: column;
@@ -211,7 +230,7 @@
     }
 }
 
-@media (min-width:1200px) {
+@media (max-width:1200px) {
     .insures-card {
         width: 13%;
     }

@@ -9,14 +9,12 @@ export default function Award() {
             <Container>
                 <Row className='d-flex flex-wrap text-center'>
                     <div className='col-md-6 second'>
-                        <a href="#">
-                            <h2>Ödüllerimizden bahsetmiş miydik?</h2>
-                            <p>Dünyanın en prestijli ödüllerinden biri olan Stevie Awards'ta Sigorta Sektörünün En İyi Websitesi Ödülü'nü kazandık.
-                                Sizinle yürüdüğümüz bu yolda nice ödülleri kucaklama dileğiyle...
-                            </p>
-                            <a href='#' className='text-primary fw-bold m'>
-                                Detalı Bilgi <FontAwesomeIcon icon={faArrowRight} />
-                            </a>
+                        <h2>Ödüllerimizden bahsetmiş miydik?</h2>
+                        <p>Dünyanın en prestijli ödüllerinden biri olan Stevie Awards'ta Sigorta Sektörünün En İyi Websitesi Ödülü'nü kazandık.
+                            Sizinle yürüdüğümüz bu yolda nice ödülleri kucaklama dileğiyle...
+                        </p>
+                        <a href='#' className='text-primary fw-bold'>
+                            Detalı Bilgi <FontAwesomeIcon icon={faArrowRight} />
                         </a>
                     </div>
                     <div className='col-md-6 first'>

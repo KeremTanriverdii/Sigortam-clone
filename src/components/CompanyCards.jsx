@@ -112,7 +112,7 @@ export default function CompanyCards() {
                     <div className="d-flex flex-wrap  align-items-center justify-content-center">
                         {/* Img map işlemi */}
                         {companyImages.map(({ icon }, index) => (
-                            <div className="company-card col-4 col-sm-3 col-md-3 col-xl-2">
+                            <div key={index} className="company-card col-4 col-sm-3 col-md-3 col-xl-2">
                                 <a href="/">
                                     <img src={icon} key={index} width={106} height={50} alt="" />
                                 </a>
