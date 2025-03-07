@@ -9,11 +9,13 @@ import WhyPolices from './components/WhyPolices'
 import Testimonials from './components/Testimonials'
 import Award from './components/Award'
 import CompanyCards from './components/CompanyCards'
+import Footer from './components/Footer'
 
 function App() {
 
   return (
     <div className='' >
+
       {/* <Header /> */}
       {/* <div className='sticky-card'>
         <Card className='p-2'>
@@ -27,13 +29,14 @@ function App() {
         </Card>
       </div> */}
       <Container>
-
         <Section />
         <WhyPolices />
       </Container>
+
       <Testimonials />
       <Award />
       <CompanyCards />
+      <Footer />
     </div>
   )
 }

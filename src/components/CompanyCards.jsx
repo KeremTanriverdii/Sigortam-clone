@@ -1,3 +1,4 @@
+import { icon } from "@fortawesome/fontawesome-svg-core";
 import { Accordion, Container } from "react-bootstrap";
 
 export default function CompanyCards() {
@@ -52,6 +53,57 @@ export default function CompanyCards() {
             description: `Evet, müşterilerimize özel sigorta teklifi için paylaşılan kişisel bilgiler ve ödeme bilgileri, tüm dünyada kabul edilip kullanılan SSL protokolümüz ile korunur. Sigortam.net TOBB tarafından verilen Güven Damgası’na sahip sigorta sektöründeki ilk şirkettir. Ödeme bilgileri sadece ödeme gerçekleştirilirken kullanılıp işlem sonrası kesinlikle kayıtlı tutulmaz. Bu güvenlik protokolleri sayesinde müşterilerimizin bilgileri Sigortam.net’e geldiği andan ödemenin tamamlanmasına kadar güvendedir`
         }
     ]
+    // 
+    const insuresImage = [
+        {
+            icon: 'https://cdnsnet.mncdn.com/facelift/assets/img/elements/branchs/category/traffic.svg',
+            subTitle: "Trafik Sigortası"
+        },
+        {
+            icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/branchs/category/auto-v2.svg",
+            subTitle: "Kasko"
+        },
+        {
+            icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/branchs/category/imm.svg",
+            subTitle: "İMM"
+        },
+        {
+            icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/branchs/category/complementhealth-v2.svg",
+            subTitle: "Tamamlayıcı Sağlık"
+        },
+        {
+            icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/branchs/category/health-v2.svg",
+            subTitle: "Özel Sağlık"
+        },
+        {
+            icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/branchs/category/travel.svg",
+            subTitle: "Seyahat Sağlık"
+        },
+        {
+            icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/branchs/category/dask.svg",
+            subTitle: "DASK"
+        },
+        {
+            icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/branchs/category/home.svg",
+            subTitle: "Evim Güvende"
+        },
+        {
+            icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/branchs/category/housing.svg",
+            subTitle: "Konut Sigortası"
+        },
+        {
+            icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/branchs/category/personal-accident-blue.svg",
+            subTitle: "Ferdi Kaza"
+        },
+        {
+            icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/branchs/category/pet-v2.svg",
+            subTitle: "Evcil Hayvan"
+        },
+        {
+            icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/branchs/category/phone.svg",
+            subTitle: "Cep Telefonu"
+        }
+    ]
     return (
         <section className="company-card-container ">
             <Container>
@@ -80,6 +132,25 @@ export default function CompanyCards() {
                             </Accordion.Item>
                         ))}
                     </Accordion>
+                </section>
+            </Container>
+
+            <Container >
+                <section>
+                    <div className="d-flex flex-column align-items-center p-5">
+                        <h2>Sigortada Güvenin Adresi</h2>
+                        <p>Doğru Ürün. İyi Fiyat</p>
+                    </div>
+                    <div className="insures-container">
+                        {insuresImage.map(({ icon, subTitle }, index) => (
+                            <div key={index} className="insures-card ms-2">
+                                <a href="">
+                                    <img src={icon} alt="" width={121} height={90} />
+                                </a>
+                                <a href=""><span>{subTitle}</span></a>
+                            </div>
+                        ))}
+                    </div>
                 </section>
             </Container>
         </section>
