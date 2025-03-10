@@ -1,6 +1,9 @@
-/* body {
-    background: #F5F7F9;
-} */
+body {
+    font-family: "Inter",sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
 
 a {
     text-decoration: none;
@@ -12,14 +15,15 @@ a {
 }
 
 .dropdown-menu[data-bs-popper] {
-    width: 90vw;
     max-width: 617px;
     margin-top: var(--bs-dropdown-spacer);
     padding: 36px;
-
     background-color: #F5F7F9;
+    width: 100vw;
 }
-
+.dropdown-menu[data-bs-popper] .show a:hover {
+    
+}
 .nav-phone {
     display: flex;
     align-items: center;

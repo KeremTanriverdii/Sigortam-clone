@@ -1,11 +1,16 @@
 import { faFacebook, faInstagram, faLinkedin, faSquareXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDown, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react"
-import { Col, Container, Dropdown, Row } from "react-bootstrap";
+import { Accordion, Col, Collapse, Container, Dropdown, Nav, Navbar, NavbarCollapse, NavDropdown, Row } from "react-bootstrap";
 export default function Footer() {
     // Farklı ekran boyutunda dropdown olması için state oluşturuldu
-    const [isWidth, setIsWidth] = useState(window.innerWidth < 991)
+    const [isWidth, setIsWidth] = useState(window.innerWidth < 991);
+    const [visible,setVisible] = useState(null);
+    const [openCollapse,setOpenCollapse] = useState({});
+    const toogleCollapse = (index) => {
+        setVisible(visible === index ? null : index)
+    }
     // Yan etkileri yönetmek için useEffect kullanıldı ve ekran boyutuna göre içerik değişiyor.
     const handleResize = () => {
         setIsWidth(window.innerWidth < 991)
@@ -14,7 +19,6 @@ export default function Footer() {
         window.addEventListener('resize', handleResize);
         return window.removeEventListener('resize', handleResize);
     }, []);
-    console.log(isWidth)
     const footerMenu = [
         {
             title: "Ürünlerimiz", subTitle: [
@@ -70,25 +74,20 @@ export default function Footer() {
             ]
         },
     ]
-    console.log(footerMenu.map((item, idx) => (
-        <ul key={idx}>
-            {item.subTitle.map(({ subItem }, subIdx) => (
-                <li key={subIdx}>
-                    <a href="#" >{subItem}</a>
-                </li>
-            ))}
-        </ul>
-    )))
+    
     return (
         <footer>
-            <Container>
-                <Row >
-                    <div className="d-flex justify-content-between">
+            <Container fluid>
+                <Container>
+                <Row  className="mx-auto justify-content-center">
+                    <div className="d-flex flex-wrap justify-content-between">
                         <div >
                             <Col sm={12} md={6} lg={6}>
+                            <div className="d-flex">
                                 <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/app-logo-goat.svg" alt="" />
                                 <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/app-logo-title.svg" width={235} height={38} alt="Sigortam_net_logo" />
-                                <span>© 2000-2025 Sigortam.net</span>
+                            </div>
+                                <span className="instruction-year">© 2000-2025 Sigortam.net</span>
                             </Col>
                         </div>
                         <div>
@@ -106,32 +105,34 @@ export default function Footer() {
                 </Row>
                 <nav>
                     <Row>
-                        {isWidth ?
-                            <Col sm={12}>
-                                <div className="d-flex flex-column text-center gap-2">
-                                    {footerMenu.map(({ title, subTitle }, index) => (
-                                        <Dropdown key={index} className="gap-5">
-                                            <Dropdown.Toggle variant="white" className="text-start w-100">
-                                                <strong className="text-start">{title}</strong>
-                                            </Dropdown.Toggle>
-                                            <Dropdown.Menu>
-                                                {subTitle.map((item, subIdx) => (
-                                                    <a key={subIdx}
-                                                        className="d-flex">
-                                                        {item.title}</a>
-                                                ))}
-                                            </Dropdown.Menu>
-                                        </Dropdown>
-                                    ))}
-                                    <Dropdown>
-                                    </Dropdown>
-                                </div>
-                            </Col>
-                            : (
-                                <Col sm={12} md={6} lg={10} >
-                                    <div className="d-flex gap-5">
+                    {isWidth ? (
+        <Col sm={12} className="second">
+          {footerMenu.map(({ title, subTitle }, index) => (
+            <div
+              key={index}
+              onClick={() => toogleCollapse(index)}
+              className="mb-4 mt-3"
+            >
+                <div className="d-flex align-items-center justify-content-between">
+              <span className="fw-bold">{title}</span>
+              <FontAwesomeIcon icon={faArrowDown} />
+                </div>
+              {visible === index && (
+                <ul className="mt-2 list-unstyled">
+                  {subTitle.map((item, subIdx) => (
+                    <li key={subIdx} className="mb-2">{item.title}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </Col>
+      ) : 
+ (
+                                <Col sm={12} md={6} lg={10} className="second" >
+                                    <div className="d-flex gap-5 mt-3">
                                         {footerMenu.map((item, idx) => (
-                                            <ul className="list-unstyled d-flex flex-column" key={idx}>
+                                            <ul className="list-unstyled d-flex flex-column w-100" key={idx}>
                                                 <li>
                                                     <strong>{item.title}</strong>
                                                 </li>
@@ -146,21 +147,21 @@ export default function Footer() {
                                 </Col>
                             )}
 
-                        <Col sm={12} md={6} lg={2}>
-                            <a href="tel:4442400" className="d-flex flex-column">
+                        <Col sm={12} md={6} lg={2} >
+                            <a href="tel:4442400" className="d-flex flex-column first">
                                 <span>Yardımcı olmaya hazırız</span>
                                 <span className="fw-bold">
                                     <FontAwesomeIcon icon={faPhone} /> 444 24 00
                                 </span>
                             </a>
                             <div className="mt-4">
-                                <span className="fw-bold">Bizi Takip edin</span>
+                                {isWidth ? "" : <span className="fw-bold">Bizi Takip edin</span>}
                                 <ul className="d-flex gap-4 mt-3 list-unstyled">
-                                    <li><FontAwesomeIcon icon={faFacebook} size="xl" style={{ color: '#000' }} /></li>
-                                    <li><FontAwesomeIcon icon={faSquareXTwitter} size="xl" style={{ color: '#000' }} /></li>
-                                    <li><FontAwesomeIcon icon={faInstagram} size="xl" style={{ color: '#000' }} /></li>
-                                    <li><FontAwesomeIcon icon={faLinkedin} size="xl" style={{ color: '#000' }} /></li>
-                                    <li><FontAwesomeIcon icon={faYoutube} size="xl" style={{ color: '#000' }} /></li>
+                                    <li><FontAwesomeIcon icon={faFacebook} size="lg" style={{ color: '#000' }} /></li>
+                                    <li><FontAwesomeIcon icon={faSquareXTwitter} size="lg" style={{ color: '#000' }} /></li>
+                                    <li><FontAwesomeIcon icon={faInstagram} size="lg" style={{ color: '#000' }} /></li>
+                                    <li><FontAwesomeIcon icon={faLinkedin} size="lg" style={{ color: '#000' }} /></li>
+                                    <li><FontAwesomeIcon icon={faYoutube} size="lg" style={{ color: '#000' }} /></li>
                                 </ul>
                             </div>
 
@@ -173,13 +174,17 @@ export default function Footer() {
                         </Col>
                     </Row>
                 </nav>
-                <Row>
-                    <Col sm={12}>
+                </Container>
+
+                <div className="mw2"><hr /></div>
+                <Container>
+                <Row className="mt-5">
+                    <Col sm={12} md={5}>
                         <span>Sigortam.net bir </span>
                         <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/ilab@2022.svg" width={69} height={25} alt="" />
                         <span> grup şirketidir.</span>
                     </Col>
-                    <Col sm={12}>
+                    <Col sm={12} md={7}>
                         <ul className="list-unstyled d-flex flex-wrap gap-2">
                             <li>
                                 <a href="">Kariyet.net</a>
@@ -212,6 +217,7 @@ export default function Footer() {
                         </ul>
                     </Col>
                 </Row>
+                </Container>
             </Container>
         </footer>
     )

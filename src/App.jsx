@@ -14,10 +14,11 @@ import Footer from './components/Footer'
 function App() {
 
   return (
-    <div className='' >
-
-      {/* <Header /> */}
-      {/* <div className='sticky-card'>
+    <div>
+      <header>
+      <Header />
+      </header>
+      <div className='sticky-card'>
         <Card className='p-2'>
           <Card.Body className='d-flex gap-3 items-center justify-content-between'>
             <FontAwesomeIcon icon={faGift} style={{ color: '#FFD43B' }} />
@@ -27,9 +28,8 @@ function App() {
             </Card.Text>
           </Card.Body>
         </Card>
-      </div> */}
+      </div>
       <Container>
-        <Section />
         <WhyPolices />
       </Container>
 

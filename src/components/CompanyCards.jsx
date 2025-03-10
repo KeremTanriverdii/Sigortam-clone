@@ -8,8 +8,8 @@ export default function CompanyCards() {
         { icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/companies-icon/ak-sigorta.webp" },
         { icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/companies-icon/allianz.webp" },
         { icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/companies-icon/anadolu-sigorta.webp" },
-        { icon: "https://www.sigortam.net/anadolu-hayat-emeklilik" },
-        { icon: "https://www.sigortam.net/ankara-sigorta" },
+        { icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/companies-icon/anadolu-hayat-emeklilik.webp" },
+        { icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/companies-icon/ankara-sigorta.webp" },
         { icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/companies-icon/axa-sigorta.webp" },
         { icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/companies-icon/axa-hayat-emeklilik.webp" },
         { icon: "https://cdnsnet.mncdn.com/facelift/assets/img/elements/companies-icon/doga-sigorta.webp" },
@@ -105,49 +105,47 @@ export default function CompanyCards() {
         }
     ]
     return (
-        <section className="company-card-container ">
-            <Container>
-                <div>
+        <section className="company-card-container">
                     <h2 className="company-header">25'ten fazla sigorta şirketinden teklif al</h2>
-                    <div className="d-flex flex-wrap  align-items-center justify-content-center">
+                <div className="d-flex flex-wrap justify-content-center w-50 mx-auto">
                         {/* Img map işlemi */}
                         {companyImages.map(({ icon }, index) => (
-                            <div key={index} className="company-card col-4 col-sm-3 col-md-3 col-xl-2">
+                            <div key={index} className="company-card col-5 col-xl-2 col-md-3  ">
                                 <a href="/">
-                                    <img src={icon} key={index} width={106} height={50} alt="" />
+                                    <img src={icon}  width={100} height={50} alt=""  />
                                 </a>
                             </div>
                         ))}
-                    </div>
                 </div>
 
                 {/* Accordion Bölümü */}
                 <section className="sss-container">
-                    <Accordion defaultActiveKey={0} >
+                    <Accordion defaultActiveKey={0} className="p-3" >
                         {accordionData.map((item, index) => (
                             <Accordion.Item key={index} eventKey={index} >
                                 <Accordion.Header>{item.header}</Accordion.Header>
                                 <Accordion.Body className="pb-5">
-                                    <hr />{item.description}</Accordion.Body>
+                                    {item.description}</Accordion.Body>
                             </Accordion.Item>
                         ))}
                     </Accordion>
                 </section>
-            </Container>
 
-            <Container >
-                <section>
-                    <div className="d-flex flex-column align-items-center p-5">
+            <Container className="">
+                <section className="mb-5">
+                    <div className="d-flex flex-column align-items-center  ">
                         <h2>Sigortada Güvenin Adresi</h2>
                         <p>Doğru Ürün. İyi Fiyat</p>
                     </div>
-                    <div className="insures-container">
+                    <div className="row align-items-center  justify-content-center mx-auto gap-4">
                         {insuresImage.map(({ icon, subTitle }, index) => (
-                            <div key={index} className="insures-card ms-2">
+                            <div key={index} className="col-xs-12 col-sm-5 col-md-3 col-lg-1">
+                                <div className="d-flex insures-card flex-column  mx-auto  gap-3 align-items-center justify-content-center w-50">
                                 <a href="">
                                     <img src={icon} alt="" width={121} height={90} />
                                 </a>
                                 <a href=""><span>{subTitle}</span></a>
+                                </div>
                             </div>
                         ))}
                     </div>
