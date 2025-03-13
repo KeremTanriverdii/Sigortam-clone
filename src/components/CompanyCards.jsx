@@ -106,45 +106,45 @@ export default function CompanyCards() {
     ]
     return (
         <section className="company-card-container">
-                    <h2 className="company-header">25'ten fazla sigorta şirketinden teklif al</h2>
-                <div className="d-flex flex-wrap justify-content-center w-50 mx-auto">
-                        {/* Img map işlemi */}
-                        {companyImages.map(({ icon }, index) => (
-                            <div key={index} className="company-card col-5 col-xl-2 col-md-3  ">
-                                <a href="/">
-                                    <img src={icon}  width={100} height={50} alt=""  />
-                                </a>
-                            </div>
-                        ))}
-                </div>
+            <h2 className="company-header">25'ten fazla sigorta şirketinden teklif al</h2>
+            <div className="d-flex flex-wrap justify-content-center w-50 mx-auto">
+                {/* Img map işlemi */}
+                {companyImages.map(({ icon }, index) => (
+                    <div key={index} className="company-card col-5 col-xl-2 col-md-3  ">
+                        <a href="/">
+                            <img src={icon} width={100} height={50} alt="" />
+                        </a>
+                    </div>
+                ))}
+            </div>
 
-                {/* Accordion Bölümü */}
-                <section className="sss-container">
-                    <Accordion defaultActiveKey={0} className="p-3" >
-                        {accordionData.map((item, index) => (
-                            <Accordion.Item key={index} eventKey={index} >
-                                <Accordion.Header>{item.header}</Accordion.Header>
-                                <Accordion.Body className="pb-5">
-                                    {item.description}</Accordion.Body>
-                            </Accordion.Item>
-                        ))}
-                    </Accordion>
-                </section>
+            {/* Accordion Bölümü */}
+            <section className="sss-container">
+                <Accordion defaultActiveKey={0} className="p-3" >
+                    {accordionData.map((item, index) => (
+                        <Accordion.Item key={index} eventKey={index} >
+                            <Accordion.Header>{item.header}</Accordion.Header>
+                            <Accordion.Body className="pb-5">
+                                {item.description}</Accordion.Body>
+                        </Accordion.Item>
+                    ))}
+                </Accordion>
+            </section>
 
             <Container className="">
                 <section className="mb-5">
-                    <div className="d-flex flex-column align-items-center  ">
+                    <div className="d-flex flex-column align-items-center">
                         <h2>Sigortada Güvenin Adresi</h2>
                         <p>Doğru Ürün. İyi Fiyat</p>
                     </div>
-                    <div className="row align-items-center  justify-content-center mx-auto gap-4">
+                    <div className="row justify-content-center">
                         {insuresImage.map(({ icon, subTitle }, index) => (
-                            <div key={index} className="col-xs-12 col-sm-5 col-md-3 col-lg-1">
-                                <div className="d-flex insures-card flex-column  mx-auto  gap-3 align-items-center justify-content-center w-50">
-                                <a href="">
-                                    <img src={icon} alt="" width={121} height={90} />
-                                </a>
-                                <a href=""><span>{subTitle}</span></a>
+                            <div key={index} className="col-xs-12 col-sm-5 col-md-3 col-lg-2 mb-3">
+                                <div className="d-flex insures-card gap-3 mx-auto justify-content-center w-50">
+                                    <a href="">
+                                        <img src={icon} alt="" width={120} height={90} />
+                                    </a>
+                                    <a href=""><span>{subTitle}</span></a>
                                 </div>
                             </div>
                         ))}

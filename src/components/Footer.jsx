@@ -2,19 +2,21 @@ import { faFacebook, faInstagram, faLinkedin, faSquareXTwitter, faYoutube } from
 import { faArrowDown, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react"
-import { Accordion, Col, Collapse, Container, Dropdown, Nav, Navbar, NavbarCollapse, NavDropdown, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 export default function Footer() {
     // Farklı ekran boyutunda dropdown olması için state oluşturuldu
     const [isWidth, setIsWidth] = useState(window.innerWidth < 991);
-    const [visible,setVisible] = useState(null);
-    const [openCollapse,setOpenCollapse] = useState({});
+    const [visible, setVisible] = useState(null);
+    const [openCollapse, setOpenCollapse] = useState({});
     const toogleCollapse = (index) => {
         setVisible(visible === index ? null : index)
     }
-    // Yan etkileri yönetmek için useEffect kullanıldı ve ekran boyutuna göre içerik değişiyor.
+
     const handleResize = () => {
         setIsWidth(window.innerWidth < 991)
     }
+    // Yan etkileri yönetmek için useEffect kullanıldı ve ekran boyutuna göre içerik değişiyor.
     useEffect(() => {
         window.addEventListener('resize', handleResize);
         return window.removeEventListener('resize', handleResize);
@@ -22,71 +24,70 @@ export default function Footer() {
     const footerMenu = [
         {
             title: "Ürünlerimiz", subTitle: [
-                { title: "Kasko Sigortası" },
-                { title: "Trafik Sigortası" },
-                { title: "İMM Sigortası" },
-                { title: "Tamamlayıcı Sağlık Sigortası" },
-                { title: "Özel Sağlık Sigortası" },
-                { title: "Konut Sigortası" },
-                { title: "DASK" },
-                { title: "Evim Güvende Sigortası" },
-                { title: "Ferdi Kaza Sigortası" },
-                { title: "Telefon Kaskosu" },
-                { title: "Evcil Hayvan Sigortası" },
-                { title: "Seyahat Sağlık Sigortası" }
+                { title: "Kasko Sigortası", to: '/#' },
+                { title: "Trafik Sigortası", to: '/#' },
+                { title: "İMM Sigortası", to: '/#' },
+                { title: "Tamamlayıcı Sağlık Sigortası", to: '/#' },
+                { title: "Özel Sağlık Sigortası", to: '/#' },
+                { title: "Konut Sigortası", to: '/#' },
+                { title: "DASK", to: '/#' },
+                { title: "Evim Güvende Sigortası", to: '/#' },
+                { title: "Ferdi Kaza Sigortası", to: '/#' },
+                { title: "Telefon Kaskosu", to: '/#' },
+                { title: "Evcil Hayvan Sigortası", to: '/#' },
+                { title: "Seyahat Sağlık Sigortası", to: '/#' }
             ]
         },
         {
             title: "Merak Edilenler", subTitle: [
-                { title: "Günlük, Haftalık ve Aylık Kasko" },
-                { title: "Doğum Sigortası Fiyatları" },
-                { title: "Hamileyken Doğum Sigortası" },
-                { title: "IMM Sigortası Nedir" },
-                { title: "Internetten Trafik Sigortası Yaptırmak" },
-                { title: "Sağlık Sigortası Karşılaştırma" },
-                { title: "SBM Teklif Al" },
-                { title: "Trafik Sigortası Şirketleri" },
-                { title: "TSS Doğum Paketi" },
+                { title: "Günlük, Haftalık ve Aylık Kasko", to: '/#' },
+                { title: "Doğum Sigortası Fiyatları", to: '/#' },
+                { title: "Hamileyken Doğum Sigortası", to: '/#' },
+                { title: "IMM Sigortası Nedir", to: '/#' },
+                { title: "Internetten Trafik Sigortası Yaptırmak", to: '/#' },
+                { title: "Sağlık Sigortası Karşılaştırma", to: '/#' },
+                { title: "SBM Teklif Al", to: '/#' },
+                { title: "Trafik Sigortası Şirketleri", to: '/#' },
+                { title: "TSS Doğum Paketi", to: '/#' },
             ]
         },
         {
             title: "Hızlı Erişim", subTitle: [
-                { title: "Araç Yakıt Hesaplama" },
-                { title: "Kasko Değer Listesi" },
-                { title: "MTV Hesaplama" },
-                { title: "ÖTV Hesaplama" },
-                { title: "Trafik Sigortası Basamakları Hesaplama" },
-                { title: "Tramer Kaydı Sorgulama" },
-                { title: "Zorunlu Trafik Sigortası Fiyatları" },
+                { title: "Araç Yakıt Hesaplama", to: '/#' },
+                { title: "Kasko Değer Listesi", to: '/#' },
+                { title: "MTV Hesaplama", to: '/#' },
+                { title: "ÖTV Hesaplama", to: '/#' },
+                { title: "Trafik Sigortası Basamakları Hesaplama", to: '/#' },
+                { title: "Tramer Kaydı Sorgulama", to: '/#' },
+                { title: "Zorunlu Trafik Sigortası Fiyatları", to: '/#' },
             ]
         },
         {
             title: "Hakkımızda", subTitle: [
-                { title: "Biz Kimiz?" },
-                { title: "İletişim" },
-                { title: "Ödüllerimiz" },
-                { title: "İşlem Rehberi" },
-                { title: "Kullanıcı Sözleşmesi" },
-                { title: "Kişisel Verilerin Korunması" },
-                { title: "Gizlilik ve Çerez Politikası" },
-                { title: "Çerez Tercihleri" },
-                { title: "Sigortam.net Basketbol Takımı" }
+                { title: "Biz Kimiz?", to: '/hakkimizda' },
+                { title: "İletişim", to: '/#' },
+                { title: "Ödüllerimiz", to: '/#' },
+                { title: "İşlem Rehberi", to: '/#' },
+                { title: "Kullanıcı Sözleşmesi", to: '/#' },
+                { title: "Kişisel Verilerin Korunması", to: '/#' },
+                { title: "Gizlilik ve Çerez Politikası", to: '/#' },
+                { title: "Çerez Tercihleri", to: '/#' },
+                { title: "Sigortam.net Basketbol Takımı", to: '/#' }
             ]
         },
     ]
-    
+
     return (
         <footer>
-            <Container fluid>
-                <Container>
-                <Row  className="mx-auto justify-content-center">
+            <Container>
+                <Row className="mx-auto justify-content-center">
                     <div className="d-flex flex-wrap justify-content-between">
                         <div >
                             <Col sm={12} md={6} lg={6}>
-                            <div className="d-flex">
-                                <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/app-logo-goat.svg" alt="" />
-                                <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/app-logo-title.svg" width={235} height={38} alt="Sigortam_net_logo" />
-                            </div>
+                                <div className="d-flex">
+                                    <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/app-logo-goat.svg" alt="" />
+                                    <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/app-logo-title.svg" width={235} height={38} alt="Sigortam_net_logo" />
+                                </div>
                                 <span className="instruction-year">© 2000-2025 Sigortam.net</span>
                             </Col>
                         </div>
@@ -105,30 +106,32 @@ export default function Footer() {
                 </Row>
                 <nav>
                     <Row>
-                    {isWidth ? (
-        <Col sm={12} className="second">
-          {footerMenu.map(({ title, subTitle }, index) => (
-            <div
-              key={index}
-              onClick={() => toogleCollapse(index)}
-              className="mb-4 mt-3"
-            >
-                <div className="d-flex align-items-center justify-content-between">
-              <span className="fw-bold">{title}</span>
-              <FontAwesomeIcon icon={faArrowDown} />
-                </div>
-              {visible === index && (
-                <ul className="mt-2 list-unstyled">
-                  {subTitle.map((item, subIdx) => (
-                    <li key={subIdx} className="mb-2">{item.title}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </Col>
-      ) : 
- (
+                        {isWidth ? (
+                            <Col sm={12} className="second">
+                                {footerMenu.map(({ title, subTitle }, index) => (
+                                    <div
+                                        key={index}
+                                        onClick={() => toogleCollapse(index)}
+                                        className="mb-4 mt-3"
+                                    >
+                                        <div className="d-flex align-items-center justify-content-between">
+                                            <span className="fw-bold">{title}</span>
+                                            <FontAwesomeIcon icon={faArrowDown} />
+                                        </div>
+                                        {visible === index && (
+                                            <ul className="mt-2 list-unstyled">
+
+                                                {subTitle.map((item, subIdx) => (
+                                                    <Link to={'/hakkimizda/a'} key={subIdx}>{item.title}</Link>
+                                                ))}
+
+                                            </ul>
+                                        )}
+                                    </div>
+                                ))}
+                            </Col>
+                        ) :
+                            (
                                 <Col sm={12} md={6} lg={10} className="second" >
                                     <div className="d-flex gap-5 mt-3">
                                         {footerMenu.map((item, idx) => (
@@ -137,9 +140,11 @@ export default function Footer() {
                                                     <strong>{item.title}</strong>
                                                 </li>
                                                 <li className="d-flex flex-column">
-                                                    {item.subTitle.map((sıbItem, subIdx) => (
-                                                        <a href="#" key={subIdx} >{sıbItem.title}</a>
+
+                                                    {item.subTitle.map((subItem, subIdx) => (
+                                                        <Link to={'/hakkimizda/a'} key={subIdx}>{subItem.title}</Link>
                                                     ))}
+
                                                 </li>
                                             </ul>
                                         ))}
@@ -174,10 +179,10 @@ export default function Footer() {
                         </Col>
                     </Row>
                 </nav>
-                </Container>
+            </Container>
 
-                <div className="mw2"><hr /></div>
-                <Container>
+            <div className="mw2"><hr /></div>
+            <Container>
                 <Row className="mt-5">
                     <Col sm={12} md={5}>
                         <span>Sigortam.net bir </span>
@@ -217,8 +222,8 @@ export default function Footer() {
                         </ul>
                     </Col>
                 </Row>
-                </Container>
             </Container>
+
         </footer>
     )
 }

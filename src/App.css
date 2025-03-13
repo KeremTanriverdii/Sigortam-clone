@@ -1,33 +1,17 @@
 .sticky-card {
     position: fixed;
-    top: 84px;
+    top: 80px;
     right: 16px;
     margin-top: 35px;
+    z-index: 3;
 }
-.sticky-card .card{
+
+.sticky-card .card {
     width: 75%;
+    border-radius: 16px;
     margin-left: auto;
 }
-.section-card-list-container {
-    max-width: 890px !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin: 0 auto !important;
-}
 
-.section-card-list-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px
-}
-
-.section-card-box {
-    position: relative;
-    justify-content: center;
-    margin: 10px 0;
-    padding: 0 10px !important;
-}
 
 .box-badge {
     position: absolute;
@@ -37,12 +21,12 @@
     color: #fff;
 }
 
- .testimonials-container {
+.testimonials-container {
     background-color: #F5F7F9;
     margin-top: 72px;
     margin-bottom: 72px;
     padding: 72px;
-} 
+}
 
 .comment-list {
     display: flex;
@@ -73,6 +57,194 @@
 
 .font-weight-bold {
     font-weight: 700 !important;
+}
+
+.h-screen {
+    margin-top: 150px;
+    min-height: 150vh;
+}
+
+.relative-container {
+    position: relative;
+    margin-top: 250px;
+    left: 45%;
+    transform: translateX(-40%);
+    height: 170vh;
+}
+
+.mockup-container {
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    top: 190px;
+}
+
+.mockup-content {
+    position: absolute;
+    top: 90px;
+    z-index: 2;
+    left: 0;
+    overflow: hidden;
+}
+
+
+.mockup-content img {
+    width: 100%;
+    height: auto;
+}
+
+.boxed {
+    position: relative;
+    top: 100px;
+}
+
+.boxed img {
+    transform: transform 03.s ease, opacity 0.3 ease;
+}
+
+.phone-image-alt {
+    position: absolute;
+    top: 0;
+}
+
+.box span {
+    margin-top: 18px;
+    color: #717171;
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: -0.16px;
+    text-align: center;
+}
+
+.cover-box {
+    width: 70%;
+    display: flex;
+    height: 100vh;
+    margin-left: auto;
+    min-height: 900px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    padding: 10px;
+}
+
+.cover-box-title {
+    margin-top: 32px;
+    margin-bottom: 8px;
+    color: #1d1e1e;
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: 600 !important;
+    letter-spacing: -0.32px;
+}
+
+.cover-box-button-div {
+    width: 100%;
+}
+
+.cover-box div button {
+    margin: 10px 0;
+    border: none;
+    color: #0089ec;
+    padding: 0;
+    background-color: transparent;
+}
+
+.cover-box div .btn-primary {
+    --bs-btn-active-bg: none;
+}
+
+.list-style {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    padding: 30px;
+}
+
+.list-style li {
+    padding: 10px;
+}
+
+.active-tab {
+    border: 1px solid #0089ec;
+    border-radius: 12px;
+
+}
+
+.active-tab:hover {
+    background-color: #FAFAFA;
+}
+
+.carousel-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+.carousel-div h1 {
+    color: #fff;
+    font-size: 44px;
+    line-height: 65px;
+    font-weight: 700 !important;
+    padding: 25px;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+.carousel-div img {
+    border-radius: 10px;
+}
+
+.carousel-div span {
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    line-height: 20px;
+    border: none;
+    padding: 25px;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.carousel-div span:hover {
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+.bg-orange {
+    background-color: #ff7300;
+}
+
+.bg-blue {
+    background: #318FCC;
+}
+
+.page {
+    border: 1px solid;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.cover-box div button:hover {
+    background-color: #fff;
+    color: #0089ec;
+}
+
+.cover-box-description {
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #515353;
 }
 
 .company-card-container {
@@ -179,9 +351,10 @@
     font-weight: 700 !important;
 }
 
-footer{
+footer {
     margin-top: 15px;
 }
+
 .col ul li {
     display: flex;
 }
@@ -191,20 +364,24 @@ footer{
     font-size: 15px;
     cursor: pointer;
 }
-.row>*{
+
+.row>* {
     width: 0%;
 }
-.comment-list{
+
+.comment-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
     flex-wrap: wrap;
 }
-.sl{
+
+.sl {
     background-color: #fff !important;
     color: aqua !important;
     border: none;
 }
+
 .divider {
     color: #717171;
     font-size: 15px;
@@ -216,36 +393,58 @@ div ul li a {
     width: 100%;
 
 }
-.instruction-year{
+
+.instruction-year {
     color: #717171;
     font-size: 11px;
 }
-.accordion-button:not(.collapsed){
+
+.accordion-button:not(.collapsed) {
     background: transparent;
 }
+
 .accordion-button:focus {
     box-shadow: none;
 }
 
+@media (max-width:572px) {
+    .cover-box-title {
+        font-size: 25px;
+    }
+
+}
+
+
+
 @media (max-width: 992px) {
     .sticky-card {
-        position: relative;
-        top: 72px;
-        right: 15px;
-        left: 15px;
-        padding: 12px 16px;
-        width: calc(100% - 30px);
+        position: static;
+        top: 75px;
+        width: 100%;
+        left: 0;
+        z-index: 50;
+
     }
-    .testimonials-card{
+
+    .sticky-card .card {
+        width: 90%;
+        margin: 0 auto;
+        border-color: #ff7300;
+        border-radius: 10px;
+    }
+
+    .testimonials-card {
         justify-content: unset;
         height: 100%;
         width: 100%;
         overflow-y: hidden;
     }
-    .comment-list{
+
+    .comment-list {
         position: relative;
         flex-wrap: nowrap;
     }
+
     .second {
         order: 2;
     }
@@ -260,9 +459,52 @@ div ul li a {
         width: 50%
     }
 
+    .cover-box {
+        margin-top: 55px;
+        min-height: 0;
+        display: inline-block;
+        width: 100%;
+        height: auto;
+    }
+
+    .cover-box div {
+        margin-top: 15px;
+        height: auto !important;
+    }
+
+    .cover-box div img {
+        width: 100%;
+    }
+
+
+
+    .boxed {
+        position: relative;
+        width: 100%;
+    }
+
     .company-card-container {
         margin: 0;
         padding: 0;
+        width: 100%;
+    }
+
+    .carousel-div h1 {
+        font-size: 13px;
+        line-height: 20px;
+        overflow: hidden;
+        font-weight: 300;
+    }
+
+    .carousel-div img {
+        width: 60%;
+        height: auto;
+    }
+
+    .flow {
+        display: flex;
+        justify-content: center;
+        overflow: scroll;
         width: 100%;
     }
 }

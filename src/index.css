@@ -1,8 +1,8 @@
 body {
-    font-family: "Inter",sans-serif;
+    font-family: "Inter", sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;    
+    font-size: 16px;
 }
 
 a {
@@ -21,9 +21,9 @@ a {
     background-color: #F5F7F9;
     width: 100vw;
 }
-.dropdown-menu[data-bs-popper] .show a:hover {
-    
-}
+
+.dropdown-menu[data-bs-popper] .show a:hover {}
+
 .nav-phone {
     display: flex;
     align-items: center;
@@ -35,13 +35,21 @@ a {
     color: #717171;
 }
 
-.sx {
-    height: 350vh;
-}
-
 .nav-phone button {
     min-height: auto !important;
     padding: 10px 24px !important;
+}
+
+.carousel .carousel-indicators button {
+    background-color: #3c9feb;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
 @media (max-width:992px) {
@@ -115,12 +123,8 @@ a {
         display: block;
         background: #FAFAFA;
     }
-}
 
-.dropdown-menu2[data-bs-popper] {
-    margin-top: var(--bs-dropdown-spacer);
-    padding: 36px;
-    width: 90vw;
-    max-width: 617px;
-    background-color: #F5F7F9;
+    .size-text-9 {
+        line-height: 14.5px;
+    }
 }
