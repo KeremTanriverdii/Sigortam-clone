@@ -6,20 +6,23 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 export default function Footer() {
     // Farklı ekran boyutunda dropdown olması için state oluşturuldu
-    const [isWidth, setIsWidth] = useState(window.innerWidth < 991);
+    const [isWidth, setIsWidth] = useState(window.innerWidth <= 991);
     const [visible, setVisible] = useState(null);
-    const [openCollapse, setOpenCollapse] = useState({});
+
     const toogleCollapse = (index) => {
         setVisible(visible === index ? null : index)
     }
 
-    const handleResize = () => {
-        setIsWidth(window.innerWidth < 991)
-    }
+
     // Yan etkileri yönetmek için useEffect kullanıldı ve ekran boyutuna göre içerik değişiyor.
     useEffect(() => {
+        const handleResize = () => {
+            setIsWidth(window.innerWidth <= 991)
+        }
         window.addEventListener('resize', handleResize);
-        return window.removeEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        }
     }, []);
     const footerMenu = [
         {
@@ -83,16 +86,16 @@ export default function Footer() {
                 <Row className="mx-auto justify-content-center">
                     <div className="d-flex flex-wrap justify-content-between">
                         <div >
-                            <Col sm={12} md={6} lg={6}>
+                            <Col sm={12} md={6} lg={7}>
                                 <div className="d-flex">
                                     <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/app-logo-goat.svg" alt="" />
                                     <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/app-logo-title.svg" width={235} height={38} alt="Sigortam_net_logo" />
                                 </div>
-                                <span className="instruction-year">© 2000-2025 Sigortam.net</span>
+                                <p className="instruction-year">© 2000-2025 Sigortam.net</p>
                             </Col>
                         </div>
                         <div>
-                            <Col sm={12} md={6} lg={6}>
+                            <Col sm={12} md={6} lg={5}>
                                 <a href="">
                                     <div className="d-flex gap-4">
                                         <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/snet-gold-winner-badge.webp" width={58} height={58} alt="" />
@@ -104,119 +107,128 @@ export default function Footer() {
                         </div>
                     </div>
                 </Row>
-                <nav>
-                    <Row>
-                        {isWidth ? (
-                            <Col sm={12} className="second">
-                                {footerMenu.map(({ title, subTitle }, index) => (
-                                    <div
-                                        key={index}
-                                        onClick={() => toogleCollapse(index)}
-                                        className="mb-4 mt-3"
-                                    >
-                                        <div className="d-flex align-items-center justify-content-between">
-                                            <span className="fw-bold">{title}</span>
-                                            <FontAwesomeIcon icon={faArrowDown} />
-                                        </div>
-                                        {visible === index && (
-                                            <ul className="mt-2 list-unstyled">
 
-                                                {subTitle.map((item, subIdx) => (
-                                                    <Link to={'/hakkimizda/a'} key={subIdx}>{item.title}</Link>
+                <nav className="row">
+                    {isWidth ? (
+                        <div className="second">
+                            {footerMenu.map(({ title, subTitle }, index) => (
+                                <Col xs={12} sm={12} md={5}
+                                    key={index}
+                                    onClick={() => toogleCollapse(index)}
+                                    className="d-flex justify-content-center flex-column"
+                                >
+                                    <div className="d-flex justify-content-between  align-items-center">
+                                        <span className="footer-title">{title}</span>
+                                        <FontAwesomeIcon icon={faArrowDown} />
+                                    </div>
+
+                                    {visible === index && (
+                                        <ul className="mt-2 list-unstyled">
+                                            {subTitle.map((item, subIdx) => (
+                                                <Link
+                                                    to={'/hakkimizda'} className="footer-link"
+                                                    key={subIdx}
+                                                >
+                                                    {item.title}
+                                                </Link>
+                                            ))}
+
+                                        </ul>
+                                    )}
+                                </Col>
+                            ))}
+                        </div>
+                    ) :
+                        (
+                            <Col sm={12} md={6} lg={10} className="second" >
+                                <div className="d-flex gap-5 mt-3">
+                                    {footerMenu.map((item, idx) => (
+                                        <ul className="list-unstyled d-flex flex-column w-100" key={idx}>
+                                            <li>
+                                                <strong>{item.title}</strong>
+                                            </li>
+                                            <li className="d-flex flex-column">
+
+                                                {item.subTitle.map((subItem, subIdx) => (
+                                                    <Link to={'/hakkimizda'} key={subIdx}>{subItem.title}</Link>
                                                 ))}
 
-                                            </ul>
-                                        )}
-                                    </div>
-                                ))}
+                                            </li>
+                                        </ul>
+                                    ))}
+                                </div>
                             </Col>
-                        ) :
-                            (
-                                <Col sm={12} md={6} lg={10} className="second" >
-                                    <div className="d-flex gap-5 mt-3">
-                                        {footerMenu.map((item, idx) => (
-                                            <ul className="list-unstyled d-flex flex-column w-100" key={idx}>
-                                                <li>
-                                                    <strong>{item.title}</strong>
-                                                </li>
-                                                <li className="d-flex flex-column">
+                        )}
 
-                                                    {item.subTitle.map((subItem, subIdx) => (
-                                                        <Link to={'/hakkimizda/a'} key={subIdx}>{subItem.title}</Link>
-                                                    ))}
+                    <Col sm={12} md={6} lg={2} >
+                        <a href="tel:4442400" className="d-flex flex-column first">
+                            <span>Yardımcı olmaya hazırız</span>
+                            <span className="fw-bold">
+                                <FontAwesomeIcon icon={faPhone} /> 444 24 00
+                            </span>
+                        </a>
+                        <div className="mt-4">
+                            {isWidth ? "" : <span className="fw-bold">Bizi Takip edin</span>}
+                            <ul className="d-flex gap-4 mt-3 list-unstyled">
+                                <li><FontAwesomeIcon icon={faFacebook} size="lg" style={{ color: '#000' }} /></li>
+                                <li><FontAwesomeIcon icon={faSquareXTwitter} size="lg" style={{ color: '#000' }} /></li>
+                                <li><FontAwesomeIcon icon={faInstagram} size="lg" style={{ color: '#000' }} /></li>
+                                <li><FontAwesomeIcon icon={faLinkedin} size="lg" style={{ color: '#000' }} /></li>
+                                <li><FontAwesomeIcon icon={faYoutube} size="lg" style={{ color: '#000' }} /></li>
+                            </ul>
+                        </div>
 
-                                                </li>
-                                            </ul>
-                                        ))}
-                                    </div>
-                                </Col>
-                            )}
-
-                        <Col sm={12} md={6} lg={2} >
-                            <a href="tel:4442400" className="d-flex flex-column first">
-                                <span>Yardımcı olmaya hazırız</span>
-                                <span className="fw-bold">
-                                    <FontAwesomeIcon icon={faPhone} /> 444 24 00
-                                </span>
-                            </a>
-                            <div className="mt-4">
-                                {isWidth ? "" : <span className="fw-bold">Bizi Takip edin</span>}
-                                <ul className="d-flex gap-4 mt-3 list-unstyled">
-                                    <li><FontAwesomeIcon icon={faFacebook} size="lg" style={{ color: '#000' }} /></li>
-                                    <li><FontAwesomeIcon icon={faSquareXTwitter} size="lg" style={{ color: '#000' }} /></li>
-                                    <li><FontAwesomeIcon icon={faInstagram} size="lg" style={{ color: '#000' }} /></li>
-                                    <li><FontAwesomeIcon icon={faLinkedin} size="lg" style={{ color: '#000' }} /></li>
-                                    <li><FontAwesomeIcon icon={faYoutube} size="lg" style={{ color: '#000' }} /></li>
-                                </ul>
-                            </div>
-
-                            <div className="d-flex align-items-center gap-2 mt-5">
-                                <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/brand-signatures/guven-damgasi.svg" alt="Güven Damdası" height={43} width={100} />
-                                <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/brand-signatures/etbis.jfif" alt="Etbis" height={100} width={80} />
-                                <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/brand-signatures/ssl.svg" alt=""
-                                    height={39} width={31} />
-                            </div>
-                        </Col>
-                    </Row>
+                        <div className="d-flex align-items-center gap-2 mt-5">
+                            <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/brand-signatures/guven-damgasi.svg" alt="Güven Damdası" height={43} width={100} />
+                            <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/brand-signatures/etbis.jfif" alt="Etbis" height={100} width={80} />
+                            <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/brand-signatures/ssl.svg" alt=""
+                                height={39} width={31} />
+                        </div>
+                    </Col>
                 </nav>
-            </Container>
 
-            <div className="mw2"><hr /></div>
-            <Container>
+                <div ><hr /></div>
                 <Row className="mt-5">
-                    <Col sm={12} md={5}>
+                    <Col sm={12} md={4} lg={4} xl={3}>
                         <span>Sigortam.net bir </span>
                         <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/ilab@2022.svg" width={69} height={25} alt="" />
                         <span> grup şirketidir.</span>
                     </Col>
-                    <Col sm={12} md={7}>
-                        <ul className="list-unstyled d-flex flex-wrap gap-2">
-                            <li>
+                    <Col sm={12} md={8} lg={8} xl={9}>
+                        <ul className="footer-lists">
+                            <li >
                                 <a href="">Kariyet.net</a>
                                 <div className="divider">&nbsp;-&nbsp;</div>
                             </li>
                             <li>
                                 <a href="">Arabam.com</a>
                                 <div className="divider">&nbsp;-&nbsp;</div>
-                            </li><li>
+                            </li>
+                            <li>
                                 <a href="">Cimri</a>
                                 <div className="divider">&nbsp;-&nbsp;</div>
-                            </li><li>
+                            </li>
+                            <li>
                                 <a href="">Emlakjet</a>
                                 <div className="divider">&nbsp;-&nbsp;</div>
-                            </li><li>
+                            </li>
+                            <li>
                                 <a href="">Endeksa</a>
                                 <div className="divider">&nbsp;-&nbsp;</div>
-                            </li><li>
+                            </li>
+                            <li>
                                 <a href="">HangiKredi</a>
                                 <div className="divider">&nbsp;-&nbsp;</div>
-                            </li><li>
+                            </li>
+                            <li>
                                 <a href="">Neredekal.com</a>
                                 <div className="divider">&nbsp;-&nbsp;</div>
-                            </li><li>
+                            </li>
+                            <li>
                                 <a href="">ChemOrbis</a>
                                 <div className="divider">&nbsp;-&nbsp;</div>
-                            </li><li>
+                            </li>
+                            <li>
                                 <a href="">SteelOrbis</a>
                             </li>
                         </ul>

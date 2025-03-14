@@ -2,7 +2,6 @@ body {
     font-family: "Inter", sans-serif;
     margin: 0;
     padding: 0;
-    font-size: 16px;
 }
 
 a {
@@ -22,34 +21,66 @@ a {
     width: 100vw;
 }
 
-.dropdown-menu[data-bs-popper] .show a:hover {}
 
-.nav-phone {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.nav-phone div span {
-    display: inline-block;
-    color: #717171;
-}
-
-.nav-phone button {
-    min-height: auto !important;
-    padding: 10px 24px !important;
-}
 
 .carousel .carousel-indicators button {
     background-color: #3c9feb;
 }
 
-.carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+
 }
 
-.carousel-control-next-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+.accordion {
+    border-radius: 16px;
+    width: 55% !important;
+    margin: 0 auto !important;
+}
+
+.accordion-header {
+    padding: 25px 30px;
+
+}
+
+/* Accordion bootstrap sınıfına bottom margin verildi */
+.accordion-item {
+    margin-bottom: 15px;
+}
+
+/* Accordion button sağdan boşluk bırakmak için bootstrap sınıfının içine yazıldı */
+.accordion-button::after {
+    margin-right: 25px;
+}
+
+.accordion-body {
+    padding: 0 72px;
+}
+
+.accordion-body {
+    color: #898A8A;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-item:first-of-type {
+    border: 12;
+}
+
+.accordion-button {
+    font-size: 16px;
+    color: #1d1e1e;
+    line-height: 27px;
+    font-weight: 500 !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #fff;
 }
 
 @media (max-width:992px) {

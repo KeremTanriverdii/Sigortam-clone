@@ -1,8 +1,7 @@
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
-import { Button, Carousel, Col, Row } from 'react-bootstrap'
-import Footer from './Footer';
+import { Button, Carousel, Col, Container, Row } from 'react-bootstrap'
 
 export default function WhyPolices() {
     const [selectTabIndex, setSelectTabIndex] = useState(1);
@@ -10,6 +9,7 @@ export default function WhyPolices() {
     const [scaleFirst, setScaleFirst] = useState(1);
     const [scaleSecond, setScaleSecond] = useState(scaleFirst);
     const [visible, setVisible] = useState(true);
+    const [nextPrevIconShow, setNextPrevIconShow] = useState(window.innerWidth > 600)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -33,9 +33,14 @@ export default function WhyPolices() {
             }
 
         };
+        const handleCloseNextPrevIcon = () => {
+            setNextPrevIconShow(window.innerWidth > 600)
+        }
         window.addEventListener('scroll', handleScroll);
+        window.addEventListener("resize", handleCloseNextPrevIcon)
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener("resize", handleCloseNextPrevIcon)
         }
     }, []);
 
@@ -155,44 +160,49 @@ export default function WhyPolices() {
     ]
     const allFilteredCarouselItems = carouselItems.filter(item => item.id === selectTabIndex);
     return (
-        <div >
-            <h1 className='fs-1 text-center'>Poliçemi neden Sigortam.net'ten almalıyım?</h1>
-            <div className='d-flex flex-row flex-row gap-5 flex-wrap align-items-center p-3 text-center justify-content-center h-auto'>
+        <Container >
+            <h1 className='whypolises-title'>Poliçemi neden Sigortam.net'ten almalıyım?</h1>
 
-                <div className='col-sm-12 col-xs-12 col-md-4 col-lg-3'>
-                    <div className='d-flex flex-column align-items-center flex-wrap'>
-                        <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/policy-trustworthy.svg" width={90} height={90} alt="" />
+            <Row className='align-items-center justify-content-center'>
+                <Col xs={12} sm={12} md={4} lg={3}>
+                    <div className='flex-center'>
+                        <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/policy-trustworthy.svg" alt="" className='img-width' />
                         <span className='fw-bold mb-2'>Doğru Ürün</span>
                         <p>Yenilenen yapay zekâmızla, onlarca sigorta teklifi arasından ucuzunu, sana uygununu ve kapsamlısını buluyoruz. Net teminatlar ve net fiyatlarla kararın hep net olsun.</p>
                     </div>
-                </div>
+                </Col>
 
-                <div className='col-sm-12 col-xs-12 col-md-4 col-lg-3'>
-                    <div className='d-flex flex-column align-items-center flex-wrap'>
-                        <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/policy-price.svg" width={90} height={90} alt="" />
+                <Col xs={12} sm={12} md={4} lg={3}>
+                    <div className='flex-center'>
+                        <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/policy-price.svg" alt="" className='img-width' />
                         <span className='fw-bold mb-2'>İyi Fiyat</span>
                         <p>Önceliğimiz her zaman sensin. Çalıştığımız tüm şirketlerde bütçeni düşünerek “en iyi fiyat garantisi” sunuyoruz.</p>
                     </div>
-                </div>
+                </Col>
 
-                <div className="col-sm-12 col-xs-12 col-md-4 col-lg-3">
-                    <div className='d-flex flex-column align-items-center flex-wrap'>
-                        <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/policy-with-you.svg" width={90} height={90} alt="" />
+                <Col xs={12} sm={12} md={4} lg={3}>
+                    <div className='flex-center'>
+                        <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/policy-with-you.svg" alt="" className='img-width' />
                         <span className='fw-bold mb-2'>7/24 Hizmet</span>
                         <p>24 yıllık tecrübemiz ve uzman sigorta danışmanlarımızla 7/24 her ihtiyacında yanındayız. Üstelik hasar anında saniyeler içinde bize ulaşabilirsin.</p>
                     </div>
-                </div>
+                </Col>
 
-            </div>
-
+            </Row>
 
             <Row className='justify-content-center'>
-                <Col xs={12} sm={12} md={6} lg={6}>
+                <Col xs={12} sm={12} md={10} lg={6}>
                     <div className='cover-box'>
-                        <div className='d-block w-100 text-center d-lg-none'>
-                            <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/feature1-mobile.webp" alt=""
-                                width={356} height={388} className='img-fluid'
-                            />
+                        <div className='d-block text-center d-lg-none d-flex flex-column gap-3 mb-5'>
+                            <div >
+                                <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/feature1-mobile.webp" alt=""
+                                    width={356} height={388} className='img-fluid'
+                                />
+                            </div>
+                            <div>
+                                <span className='cover-box-span' >Görseldeki fiyatlar temsilidir. Aracına özel fiyatları tekliflerde görebilirsin.
+                                </span>
+                            </div>
                         </div>
                         <div className='cover-box-title' >
                             Hangi ürün bana en uygun diye düşünme, biz senin için en net teklifleri sıraladık bile!
@@ -206,11 +216,19 @@ export default function WhyPolices() {
                             </Button>
                         </div>
                     </div>
+
                     <div className='cover-box'>
-                        <div className='d-block w-100 text-center d-lg-none'>
-                            <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/feature2-mobile.webp" alt="" className='img-fluid'
-                                width={356} height={388}
-                            />
+                        <div className='d-block text-center d-lg-none d-flex flex-column gap-3 mb-5'>
+                            <div >
+                                <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/feature2-mobile.webp" alt="" className='img-fluid'
+                                    width={356} height={388}
+                                />
+
+                            </div>
+                            <div>
+                                <span className='cover-box-span' >Görseldeki fiyatlar temsilidir. Aracına özel fiyatları tekliflerde görebilirsin.
+                                </span>
+                            </div>
                         </div>
                         <div className='cover-box-title'>
                             Sadece 2 dakikada tüm teklifleri kolayca karşılaştır.
@@ -225,11 +243,15 @@ export default function WhyPolices() {
                         </div>
                     </div>
                 </Col>
+
                 <Col xs={12} sm={12} md={6} lg={6} className='d-none d-lg-block'>
                     <div className='relative-container '>
                         <div className='mockup-container'>
-                            <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/phone-mockup.webp" alt="" />
-
+                            <div >
+                                <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/phone-mockup.webp" alt="" />
+                                <span className='d-none d-lg-block'>Görseldeki fiyatlar temsilidir. Aracına özel fiyatları tekliflerde görebilirsin.
+                                </span>
+                            </div>
                             <div className='mockup-content'>
                                 {visible ?
                                     <div style={{ transform: `scale(${scaleFirst})` }}>
@@ -249,66 +271,74 @@ export default function WhyPolices() {
 
                             </div>
 
-                            {/* <span className='d-none d-lg-block'>Görseldeki fiyatlar temsilidir. Aracına özel fiyatları tekliflerde görebilirsin.
-                                </span> */}
+
                         </div>
                     </div>
                 </Col>
             </Row>
 
 
-            <div className='d-flex flex-column gap-3 justify-content-center align-items-center'>
+            <Row className='flex-column flex-nowrap text-center'>
                 <h2>Sigortam.net'te sana özel neler var?</h2>
-                <div className='flow'>
-                    <ul className='list-style' >
-                        <li role='tab' onClick={() => setSelectTabIndex(0)}
-                            className={selectTabIndex === 0 ? "active-tab" : ""}
-                        >İndirimler & Kampanyalar
-                        </li>
-                        <li role="tab" onClick={() => setSelectTabIndex(1)}
-                            className={selectTabIndex === 1 ? "active-tab" : ""}
-                        >Reklam Filmleri
-                        </li>
-                        <li role='tab' onClick={() => setSelectTabIndex(2)}
-                            className={selectTabIndex === 2 ? "active-tab" : ""}
-                        >Öne Çıkanlar
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <Row>
-                <Col sm={12} md={12} lg={12} >
-                    {allFilteredCarouselItems.length > 0 && allFilteredCarouselItems[0].id === 1 ?
-                        <Carousel>
+                <ul className='carousel-lists overflow-x-auto p-5' >
+                    <li role='tab' onClick={() => setSelectTabIndex(0)}
+                        className={selectTabIndex === 0 ? "active-tab" : "p-3"}
+                    >İndirimler & Kampanyalar
+                    </li>
+                    <li role="tab" onClick={() => setSelectTabIndex(1)}
+                        className={selectTabIndex === 1 ? "active-tab" : "p-3"}
+                    >Reklam Filmleri
+                    </li>
+                    <li role='tab' onClick={() => setSelectTabIndex(2)}
+                        className={selectTabIndex === 2 ? "active-tab" : "p-3"}
+                    >Öne Çıkanlar
+                    </li>
+                </ul>
+            </Row>
+            <Col sm={12} md={12} lg={12} >
+                {allFilteredCarouselItems.length > 0 && allFilteredCarouselItems[0].id === 1 ?
+                    <Carousel
+                        controls={nextPrevIconShow}
+
+                        nextIcon={<FontAwesomeIcon icon={faArrowRight} style={{ color: "#0089ec" }} size='lg' />}
+
+                        prevIcon={<FontAwesomeIcon icon={faArrowLeft} style={{ color: "#0089ec" }} size='lg' />}
+                    >
+                        {allFilteredCarouselItems.map((item, index) => (
+                            <Carousel.Item key={index} className='aspect-radio-container'>
+                                <iframe
+                                    src={item.srcUrl}
+                                    allowFullScreen
+                                >
+                                </iframe>
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
+                    : (
+                        <Carousel
+                            controls={nextPrevIconShow}
+
+                            nextIcon={<FontAwesomeIcon icon={faArrowRight} style={{ color: "#0089ec" }} />}
+
+                            prevIcon={<FontAwesomeIcon icon={faArrowLeft} style={{ color: "#0089ec" }} />}
+                        >
                             {allFilteredCarouselItems.map((item, index) => (
-                                <Carousel.Item key={index} className=''>
-                                    <div className='d-flex justify-content-center '>
-                                        <iframe width="1080" height="520"
-                                            src={item.srcUrl} className='page'>
-                                        </iframe>
+                                <Carousel.Item key={index}>
+                                    <div className={`${item.divClassName} `}>
+                                        <div>
+                                            <h1>{item.header}</h1>
+                                            <span role='button'>Hemen Keşfet
+                                                <FontAwesomeIcon icon={faArrowRight} className='ms-2' />
+                                            </span>
+                                        </div>
+                                        <img src={item.srcUrl} />
                                     </div>
                                 </Carousel.Item>
                             ))}
                         </Carousel>
-                        : (
-                            <Carousel>
-                                {allFilteredCarouselItems.map((item, index) => (
-                                    <Carousel.Item key={index}>
-                                        <div className={`${item.divClassName} `}>
-                                            <div>
-                                                <h1>{item.header}</h1>
-                                                <span role='button'>Hemen Keşfet
-                                                    <FontAwesomeIcon icon={faArrowRight} className='ms-2' />
-                                                </span>
-                                            </div>
-                                            <img src={item.srcUrl} />
-                                        </div>
-                                    </Carousel.Item>
-                                ))}
-                            </Carousel>
-                        )}
-                </Col>
-            </Row>
-        </div>
+                    )}
+            </Col>
+
+        </Container>
     )
 }

@@ -27,6 +27,7 @@ export default function HomePage() {
             <Testimonials />
             <Award />
             <CompanyCards />
+
         </div>
     )
 }

@@ -1,5 +1,4 @@
-import { icon } from "@fortawesome/fontawesome-svg-core";
-import { Accordion, Container } from "react-bootstrap";
+import { Accordion, Col, Container, Row } from "react-bootstrap";
 
 export default function CompanyCards() {
     // Img map işlemi için değişken oluşturuldu
@@ -120,18 +119,22 @@ export default function CompanyCards() {
 
             {/* Accordion Bölümü */}
             <section className="sss-container">
-                <Accordion defaultActiveKey={0} className="p-3" >
-                    {accordionData.map((item, index) => (
-                        <Accordion.Item key={index} eventKey={index} >
-                            <Accordion.Header>{item.header}</Accordion.Header>
-                            <Accordion.Body className="pb-5">
-                                {item.description}</Accordion.Body>
-                        </Accordion.Item>
-                    ))}
-                </Accordion>
+                <Row className="justify-content-center">
+                    <Col xs={12} sm={12} md={12} lg={12} xl={10}>
+                        <Accordion defaultActiveKey={0} >
+                            {accordionData.map((item, index) => (
+                                <Accordion.Item key={index} eventKey={index} >
+                                    <Accordion.Header>{item.header}</Accordion.Header>
+                                    <Accordion.Body className="pb-5">
+                                        {item.description}</Accordion.Body>
+                                </Accordion.Item>
+                            ))}
+                        </Accordion>
+                    </Col>
+                </Row>
             </section>
 
-            <Container className="">
+            <Container >
                 <section className="mb-5">
                     <div className="d-flex flex-column align-items-center">
                         <h2>Sigortada Güvenin Adresi</h2>
@@ -139,14 +142,16 @@ export default function CompanyCards() {
                     </div>
                     <div className="row justify-content-center">
                         {insuresImage.map(({ icon, subTitle }, index) => (
-                            <div key={index} className="col-xs-12 col-sm-5 col-md-3 col-lg-2 mb-3">
-                                <div className="d-flex insures-card gap-3 mx-auto justify-content-center w-50">
+                            <Col xs={7} sm={6} md={4} lg={3} xl={2}
+                                key={index}
+                            >
+                                <div className="d-flex insures-card gap-3 mx-auto justify-content-center">
                                     <a href="">
-                                        <img src={icon} alt="" width={120} height={90} />
+                                        <img src={icon} alt="" />
                                     </a>
                                     <a href=""><span>{subTitle}</span></a>
                                 </div>
-                            </div>
+                            </Col>
                         ))}
                     </div>
                 </section>
