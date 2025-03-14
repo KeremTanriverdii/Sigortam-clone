@@ -4,10 +4,14 @@ import WhyPolices from '../components/WhyPolices'
 import Testimonials from '../components/Testimonials'
 import Award from '../components/Award'
 import CompanyCards from '../components/CompanyCards'
+import Section from '../components/Section'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faGift } from '@fortawesome/free-solid-svg-icons'
+import Cookie from '../components/Cookie'
 
 export default function HomePage() {
+
+
     return (
         <div>
             <div className='sticky-card'>
@@ -22,12 +26,12 @@ export default function HomePage() {
                 </Card>
             </div>
 
-
+            <Section />
             <WhyPolices />
             <Testimonials />
             <Award />
             <CompanyCards />
-
+            <Cookie />
         </div>
     )
 }

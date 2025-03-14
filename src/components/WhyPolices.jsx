@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Carousel, Col, Container, Row } from 'react-bootstrap'
 
 export default function WhyPolices() {
-    const [selectTabIndex, setSelectTabIndex] = useState(1);
+    const [selectTabIndex, setSelectTabIndex] = useState(2);
     const [opacityAlt, setOpacityAlt] = useState(0);
     const [scaleFirst, setScaleFirst] = useState(1);
     const [scaleSecond, setScaleSecond] = useState(scaleFirst);

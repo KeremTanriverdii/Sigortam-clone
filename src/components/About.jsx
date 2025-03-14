@@ -77,7 +77,7 @@ export default function About() {
 
     return (
         <div>
-            <Container style={{ marginTop: "15vh" }}>
+            <Container style={{ marginTop: "10vh" }}>
                 <ul className='d-flex list-unstyled gap-5'>
                     <li role='tab' onClick={() => setSelectIndex(0)}
                         className={selectIndex === 0 ? "active-link" : ""}
@@ -99,41 +99,51 @@ export default function About() {
                 </ul>
 
                 <h1>Reklamlarla Sigortam.net</h1>
-                <div className='d-flex mx-auto justify-content-around align-items-center overflow-x-auto gap-5'>
-                    <Col xs={5} sm={12} md={3} lg={3} className='d-flex align-items-center'>
-                        <Card.Img className='rounded-circle img-fluid' src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/withFigures1.svg' />
-                        <span>10 Milyon Mutlu Müşteri</span>
-                    </Col>
-                    <Col xs={5} sm={12} md={3} lg={4} className='d-flex align-items-center'>
-                        <div className='d-flex align-items-center gap-5'>
-                            <Card.Img className='rounded-circle img-fluid' src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/withFigures1.svg' />
-                            <span>10 Milyon Mutlu Müşteri</span>
-                        </div>
-                    </Col>
-                    <Col xs={5} sm={12} md={3} lg={4} className='d-flex align-items-center'>
-                        <div className='d-flex align-items-center gap-5'>
-                            <Card.Img className='rounded-circle img-fluid' src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/withFigures1.svg' />
-                            <span>10 Milyon Mutlu Müşteri</span>
-                        </div>
-                    </Col>
+                <div className='mt-5' style={{ overflowX: window.innerWidth < 576 ? "auto" : "hidden" }}>
+                    <div className='d-flex flex-nowrap gap-5 p-3'>
+
+                        <Col xs={6} sm={3} md={4} className='flex-shrink-0'
+                            style={{ flexShrink: window.innerWidth < 576 ? "0" : "1" }}>
+                            <div className='d-flex gap-5 align-items-center'>
+                                <Card.Img className='img-fluid' src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/withFigures1.svg' width={50} height={138} />
+                                <span className='w-100'><strong>10 Milyon</strong><br /> Mutlu Müşteri</span>
+                            </div>
+                        </Col>
+
+                        <Col xs={6} sm={3} md={4} className='flex-shrink-0'
+                            style={{ flexShrink: window.innerWidth < 576 ? "0" : "1" }}>
+                            <div className='d-flex gap-5 align-items-center'>
+                                <Card.Img className='img-fluid' src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/withFigures2_v1.svg' width={50} height={138} />
+                                <span className='w-100'><strong>~700</strong> Çalışan</span>
+                            </div>
+                        </Col>
+
+                        <Col xs={6} sm={3} md={4} className='flex-shrink-0'
+                            style={{ flexShrink: window.innerWidth < 576 ? "0" : "1" }}>
+                            <div className='d-flex gap-5 align-items-center'>
+                                <Card.Img className='img-fluid' src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/withFigures4_25.svg' width={50} height={138} />
+                                <span className='fw-bold w-100'><strong>25 Yıllık</strong> Tecrübe</span>
+                            </div>
+                        </Col>
+                    </div>
                 </div>
             </Container>
 
-            <div style={{ backgroundColor: "#F5F7F9" }}>
+            <div style={{ backgroundColor: "#F5F7F9" }} className='mt-5'>
                 <Container>
-                    <Row >
-                        <div className='d-flex flex-wrap'>
-                            <Col xs={12} sm={12} md={6} lg={6}>
-                                <img src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/goat-arena-3-v1.webp' width={570} height={321} />
-                            </Col>
-                            <Col>
-                                <h3>Dünden Bugüne</h3>
-                                <p>2000 yılında iLab Grup’un bir parçası olarak kurulan, Türkiye’nin ilk ve lider dijital sigorta platformu Sigortam.net, 10 milyon müşterisi, 20’den fazla anlaşmalı sigorta şirketi ve 700’e yakın çalışanıyla müşteri ihtiyaçlarını en iyi şekilde karşılayabilecek teknolojilere yatırım yaparak, ‘müşterinin şampiyonu’ olma hedefiyle hizmet vermeye devam etmektedir. Sigortam.net, Kasko, Zorunlu Trafik Sigortası, Tamamlayıcı Sağlık Sigortası, Özel Sağlık Sigortası, DASK ve Konut Sigortası ihtiyaçlarında müşterilerine en iyi sigorta tekliflerini sunmasının yanı sıra, alınan teklifleri de karşılaştırarak müşterilerinin en uygun seçeneklerle buluşmasını sağlamaktadır. Ayrıca satın alma ve satış sonrası süreçlerde de 7/24 danışmanlık hizmetiyle müşterilerinin yanında olan Sigortam.net, dijitalleşme kapsamında teknolojiyi ve insan tecrübesini bir araya getirerek ilerlemektedir. Sigortam.net, değişen müşteri ihtiyaçları doğrultusunda ürün ve hizmetlerini her geçen gün genişletmekte, nitelikli insan kaynağına yatırım yapmakta, daha teknolojik ve dijital dünyanın hızına uyacak şekilde gelişerek büyümesini her geçen gün sürdürmektedir. 2013 yılından beri Sigortam.net Basketbol Takımının isim sponsorudur.</p>
-                            </Col>
-                        </div>
+                    <Row className='align-items-center flex-wrap' >
+                        <Col xs={12} md={6} className='d-flex'>
+                            <img src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/goat-arena-3-v1.webp'
+                                className='img-fluid' />
+                        </Col>
+
+                        <Col xs={12} md={6} className='now-text' >
+                            <h3>Dünden Bugüne</h3>
+                            <p>2000 yılında iLab Grup’un bir parçası olarak kurulan, Türkiye’nin ilk ve lider dijital sigorta platformu Sigortam.net, 10 milyon müşterisi, 20’den fazla anlaşmalı sigorta şirketi ve 700’e yakın çalışanıyla müşteri ihtiyaçlarını en iyi şekilde karşılayabilecek teknolojilere yatırım yaparak, ‘müşterinin şampiyonu’ olma hedefiyle hizmet vermeye devam etmektedir. Sigortam.net, Kasko, Zorunlu Trafik Sigortası, Tamamlayıcı Sağlık Sigortası, Özel Sağlık Sigortası, DASK ve Konut Sigortası ihtiyaçlarında müşterilerine en iyi sigorta tekliflerini sunmasının yanı sıra, alınan teklifleri de karşılaştırarak müşterilerinin en uygun seçeneklerle buluşmasını sağlamaktadır. Ayrıca satın alma ve satış sonrası süreçlerde de 7/24 danışmanlık hizmetiyle müşterilerinin yanında olan Sigortam.net, dijitalleşme kapsamında teknolojiyi ve insan tecrübesini bir araya getirerek ilerlemektedir. Sigortam.net, değişen müşteri ihtiyaçları doğrultusunda ürün ve hizmetlerini her geçen gün genişletmekte, nitelikli insan kaynağına yatırım yapmakta, daha teknolojik ve dijital dünyanın hızına uyacak şekilde gelişerek büyümesini her geçen gün sürdürmektedir. 2013 yılından beri Sigortam.net Basketbol Takımının isim sponsorudur.</p>
+                        </Col>
                     </Row>
 
-                    <Row className='position-relative'>
+                    <Row className='position-relative' style={{ marginTop: "10vh" }}>
                         <div className='year-container'>
                             <div className='year'>2000</div>
                             <ul className='list-awards'>
@@ -142,16 +152,10 @@ export default function About() {
                                         <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/app-logo-title.svg" alt="" width={260} />
                                     </div>
                                 </li>
-                                {/* {timelineItems.map((item, index) => (
-                                    <li key={index}>
-                                        <div>{item.year}</div>
-                                        <div>{item.description}</div>
-                                    </li>
-                                ))} */}
                             </ul>
-                            {/* <Timeline items={timelineItems} onPointClick={handleYearClick} points={timelinePoints} /> */}
                         </div>
                     </Row>
+
                     <Row className='d-lg-none d-sm-none d-md-none d-xl-none'>
                         <Col className='d-flex '>
                             <Card className='w-100 d-flex flex-wrap'>
@@ -161,7 +165,7 @@ export default function About() {
                                         <Col xs={4} sm={4}>
                                             <Card.Img src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/WhyGoatv1.svg' />
                                         </Col>
-                                        <Col xs={8} sm={8} className='d-flex justify-content-center'>
+                                        <Col xs={8} sm={8} className='d-flex justify-content-center align-items-center'>
                                             <h4>10 Milyonun Tercihi</h4>
                                         </Col>
                                     </div>
@@ -178,21 +182,22 @@ export default function About() {
             </div>
 
             <Container>
-                <Row >
-                    <Col sm={12} md={8} lg={6}>
-                        <div className='d-flex flex-column justify-content-center'>
+                <Row className='justify-content-center align-items-center'>
+                    <Col xs={12} md={8} >
+                        <div className='labgroup-box' >
                             <h3>iLab Group</h3>
                             <span>Sigortam.net, bir iLab grup şirketidir. iLab, erken aşama ve büyümekte olan teknoloji girişimlerine yatırım yapan Türkiye’nin lider dijital tüketici platformudur. Kurulduğu 2000 yılından bu yana alanında öncü internet şirketlerine yaptığı yatırımların yanı sıra yeni platformları hayata geçiren ve büyüten iLab, Türkiye’nin dijital dönüşüm sürecinde kritik rol oynamıştır. iLab grup şirketleri bugün aylık bazda Türkiye’deki internet kullanıcılarının %65’ine hizmet vermektedir.</span>
                         </div>
                     </Col>
-                    <Col md={4} lg={6} className='d-flex justify-content-center'>
-                        <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/incorporation/ilab-total_v1.webp" alt="" height={320} width={410} />
+
+                    <Col xs={12} md={4} className='d-flex justify-content-center'>
+                        <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/incorporation/ilab-total_v1.webp" alt="" className='img-fluid' />
                     </Col>
 
 
 
                     <hr />
-                    <Row className='w-100'>
+                    {/* <Row className='mb-5 mt-2'>
                         <div className='d-flex flex-wrap gap-4 justify-content-between flex-column flex-md-row'>
                             <div className='d-flex justify-content-between gap-5'>
                                 <a href="">
@@ -238,98 +243,97 @@ export default function About() {
                                 </a>
                             </div>
                         </div>
-                    </Row>
+                    </Row> */}
                 </Row>
             </Container>
 
 
             {/* Carousel Section */}
             <div style={{ background: "#F5F7F9" }}>
-                <Container>
-                    <Row className='w-100'>
-                        <h2 className='carousel-header'>Ödüllerimiz</h2>
-                        <Carousel
-                            nextIcon={<FontAwesomeIcon icon={faArrowRight} style={{ color: "#0089ec" }} size='xl' />}
-                            prevIcon={<FontAwesomeIcon icon={faArrowLeft} style={{ color: "#0089ec" }} size='xl' />}
-                            controls={showControls}
-                        >
-                            {carouselItems.map(({ name, title, trophy, icon, trophyLevel }, index) => (
-                                <Carousel.Item key={index} >
-                                    <Row className='justify-content-center gap-5 align-items-center '
-                                    >
-                                        <Col xs={12} sm={12} md={4} lg={3}>
-                                            <div className='companys-card'>
-                                                <div className='companys-cards-name'>
-                                                    {name}
-                                                </div>
-
-                                                <div className='company-cards-title'>{title}
-                                                </div>
-
-                                                <div >
-                                                    {trophy ? <div className='company-trophy'>
-                                                        <div>
-                                                            {icon}
-                                                        </div>
-                                                        <div>
-                                                            {trophyLevel}
-                                                        </div>
-                                                    </div> : ""}
-                                                </div>
+                <Row >
+                    <h2 className='carousel-header'>Ödüllerimiz</h2>
+                    <Carousel
+                        nextIcon={<FontAwesomeIcon icon={faArrowRight} style={{ color: "#0089ec" }} size='xl' />}
+                        prevIcon={<FontAwesomeIcon icon={faArrowLeft} style={{ color: "#0089ec" }} size='xl' />}
+                        controls={showControls}
+                    >
+                        {carouselItems.map(({ name, title, trophy, icon, trophyLevel }, index) => (
+                            <Carousel.Item key={index} >
+                                <Row className='justify-content-center w-100'
+                                >
+                                    <Col xs={12} md={3} className='d-flex justify-content-center'>
+                                        <div className='companys-card'>
+                                            <div className='companys-cards-name'>
+                                                {name}
                                             </div>
-                                        </Col>
 
-                                        <Col xs={12} sm={12} md={4} lg={3} className='d-none d-md-block'>
-                                            <div className='companys-card'>
-                                                <div className='companys-cards-name'>
-                                                    {name}
-                                                </div>
-
-                                                <div className='company-cards-title'>{title}
-                                                </div>
-
-                                                <div >
-                                                    {trophy ? <div className='company-trophy'>
-                                                        <div>
-                                                            {icon}
-                                                        </div>
-                                                        <div>
-                                                            {trophyLevel}
-                                                        </div>
-                                                    </div> : ""}
-                                                </div>
+                                            <div className='company-cards-title'>{title}
                                             </div>
-                                        </Col>
 
-                                        <Col xs={12} sm={12} md={4} lg={3}
-                                            className='d-none d-md-block me-5'>
-                                            <div className='companys-card'>
-                                                <div className='company-cards-name'>
-                                                    {name}
-                                                </div>
-
-                                                <div className='company-cards-title'>{title}
-                                                </div>
-
-                                                <div >
-                                                    {trophy ? <div className='company-trophy'>
-                                                        <div>
-                                                            {icon}
-                                                        </div>
-                                                        <div>
-                                                            {trophyLevel}
-                                                        </div>
-                                                    </div> : ""}
-                                                </div>
+                                            <div >
+                                                {trophy ? <div className='company-trophy'>
+                                                    <div>
+                                                        {icon}
+                                                    </div>
+                                                    <div>
+                                                        {trophyLevel}
+                                                    </div>
+                                                </div> : ""}
                                             </div>
-                                        </Col>
-                                    </Row>
+                                        </div>
+                                    </Col>
 
-                                </Carousel.Item>
-                            ))}
-                        </Carousel>
-                    </Row>
-                </Container>
+                                    <Col xs={12} md={3}
+                                        className='d-flex justify-content-center d-none d-md-block'>
+                                        <div className='companys-card'>
+                                            <div className='companys-cards-name'>
+                                                {name}
+                                            </div>
+
+                                            <div className='company-cards-title'>{title}
+                                            </div>
+
+                                            <div >
+                                                {trophy ? <div className='company-trophy'>
+                                                    <div>
+                                                        {icon}
+                                                    </div>
+                                                    <div>
+                                                        {trophyLevel}
+                                                    </div>
+                                                </div> : ""}
+                                            </div>
+                                        </div>
+                                    </Col>
+
+                                    <Col xs={12} md={3}
+                                        className='d-flex justify-content-center d-none d-xl-block'>
+                                        <div className='companys-card'>
+                                            <div className='company-cards-name'>
+                                                {name}
+                                            </div>
+
+                                            <div className='company-cards-title'>{title}
+                                            </div>
+
+                                            <div >
+                                                {trophy ? <div className='company-trophy'>
+                                                    <div>
+                                                        {icon}
+                                                    </div>
+                                                    <div>
+                                                        {trophyLevel}
+                                                    </div>
+                                                </div> : ""}
+                                            </div>
+                                        </div>
+                                    </Col>
+                                </Row>
+
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
+                </Row>
             </div>
         </div >
     )

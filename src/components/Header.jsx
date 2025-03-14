@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
@@ -21,11 +21,9 @@ export default function Header() {
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false)
 
-    const [dropdownShow, setDropdownShow] = useState(false)
-    const handleDropdownShow = () => setDropdownShow(true)
-    const handleCloseDropdown = () => setDropdownShow(false)
 
     useEffect(() => {
+
         const handleResize = () => {
             setIsCollapse(window.innerWidth < 993);
         }
@@ -38,7 +36,6 @@ export default function Header() {
                 setIsHeight(false);
             }
         }
-
         window.addEventListener('scroll', handleHeight);
         window.addEventListener('resize', handleResize);
         return () => {
@@ -84,7 +81,7 @@ export default function Header() {
         },
     ]
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="bg-body-tertiary" fixed='top'>
             <Container>
                 <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -92,9 +89,12 @@ export default function Header() {
                     <Nav className="me-auto">
                         <Nav.Link href="#home">Home</Nav.Link>
                         <Nav.Link href="#link">Link</Nav.Link>
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                        <NavDropdown title="Dropdown"
+                            id="basic-nav-dropdown"
+
+                        >
                             {dropdownItems.map((item, index) => (
-                                <NavDropdown.Item className='d-flex flex-wrap'>
+                                <NavDropdown.Item key={index} className='d-flex flex-wrap'>
                                     <Card className='col-6'>
                                         <Card.Body>
                                             <div>
@@ -102,8 +102,8 @@ export default function Header() {
                                             </div>
                                             <div>{item.icon}</div>
                                             <ul>
-                                                {item.navs.map((subItem, subIds) => (
-                                                    <li>{subItem.nav}
+                                                {item.navs.map((subItem, subIdx) => (
+                                                    <li key={subIdx}>{subItem.nav}
                                                         {subItem.isNew}
                                                     </li>
                                                 ))}

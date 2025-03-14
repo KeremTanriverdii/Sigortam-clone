@@ -58,6 +58,97 @@
     font-weight: 700 !important;
 }
 
+.list-box {
+    position: relative;
+    max-height: 162px;
+    min-width: 275px;
+    padding: 10px 10px !important;
+    background-color: #fff;
+}
+
+.labgroup-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.list-box .card {
+    border-radius: 50px;
+}
+
+.list-box img {
+    max-width: 125px;
+}
+
+.now-text {
+    font-size: 14px;
+}
+
+.section-button {
+    background: none;
+    color: #007bff;
+    padding: 10px;
+    border: none;
+}
+
+.cookie-container {
+    position: fixed;
+    bottom: 8px;
+    left: 8px;
+    padding: 10px 14px;
+    width: 400px;
+    height: 115px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 25px 50px -12px;
+    animation: slide 1s linear;
+}
+
+
+.cookie-title {
+    font-size: 13px;
+    text-align: center;
+    color: #000;
+}
+
+.cookie-title a {
+    text-decoration: underline;
+}
+
+.cookie-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.cookie-buttons button {
+    background-color: #0089ec;
+    border-radius: 12px;
+    width: 112px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 600 !important;
+    font-size: 13px;
+    padding: 12px 11px;
+}
+
+@keyframes slide {
+    0% {
+        transform: translate3d(0, 100%, 0);
+        visibility: visible;
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
 .h-screen {
     margin-top: 150px;
     min-height: 150vh;
@@ -330,7 +421,7 @@
     list-style-type: none;
     display: flex;
     margin-top: 16px;
-    top: 27%;
+    top: 17%;
     margin-bottom: 55px;
     margin-left: 33px;
     z-index: 5;
@@ -407,7 +498,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     box-shadow: 0 2px 6px rgba(34, 34, 34, 0.2);
     width: 332px;
     height: 192px;
@@ -523,6 +614,15 @@
 @media (max-width:720px) {
     .section-card-list-box-container {
         width: 30%;
+    }
+
+    .cookie-container {
+        width: 100%;
+        bottom: 0;
+    }
+
+    .cookie-buttons button {
+        width: 100%;
     }
 }
 
