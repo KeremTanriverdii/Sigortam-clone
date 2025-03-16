@@ -28,6 +28,67 @@
     padding: 72px;
 }
 
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #0089EC;
+}
+
+.hover-underline-animation::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-color:hover a {
+    color: #0089EC
+}
+
+.dx-hover:hover div {
+    color: #0089EC;
+}
+
+
+.hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.hover-underline-animation:hover span {
+    color: #0089EC;
+}
+
+.offcanvasDropdownItem:hover .dx-image {
+    display: block;
+}
+
+.dx-image {
+    display: none;
+    color: #007bff;
+}
+
+.dx-hover:hover .dx-image {
+    display: block;
+    opacity: 0.236777;
+    opacity: 1;
+    transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown-card {
+    padding: 30px 10px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(34, 34, 34, 0.2);
+    height: 201px;
+    width: 265.5px;
+}
 
 .active-link {
     color: #318FCC;
@@ -104,6 +165,7 @@
     border-radius: 8px;
     box-shadow: 0 25px 50px -12px;
     animation: slide 1s linear;
+    z-index: 1054;
 }
 
 
@@ -399,6 +461,27 @@
     filter: grayscale(100%);
 }
 
+.navbar-button {
+    display: flex;
+    align-items: center;
+    min-height: 49px;
+    max-width: 183px;
+    line-height: 17px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600 !important;
+    background-color: #0089ec;
+}
+
+
+
+.text-size-9 {
+    color: #717171;
+    font-size: 12px;
+    line-height: 14.5px;
+    margin-bottom: 1px;
+}
+
 .company-card:hover img {
     filter: grayscale(0%);
 }
@@ -492,6 +575,11 @@
     border-radius: 50%;
     background-color: #fff;
     border: 2px solid #007bff;
+}
+
+.advertisement-title {
+    font-size: 26px;
+    text-align: center;
 }
 
 .companys-card {
