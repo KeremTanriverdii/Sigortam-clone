@@ -1,7 +1,7 @@
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
-import { Button, Carousel, Col, Container, Row } from 'react-bootstrap'
+import { Carousel, Col, Container, Row } from 'react-bootstrap'
 import MockupContent from './MockupContent';
 
 export default function WhyPolices() {
@@ -141,7 +141,7 @@ export default function WhyPolices() {
             <h1 className='whypolices-title'>Poliçemi neden Sigortam.net'ten almalıyım?</h1>
 
             <Row className='align-items-center justify-content-center gap-5'>
-                <Col xs={12} md={4} lg={3}>
+                <Col xs={12} md={6} lg={3}>
                     <div className='flex-center'>
                         <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/policy-trustworthy.svg" alt="" className='img-width' width={90} height={90} />
                         <span className='whypolices-subtitle'>Doğru Ürün</span>
@@ -149,7 +149,7 @@ export default function WhyPolices() {
                     </div>
                 </Col>
 
-                <Col xs={12} md={4} lg={3}>
+                <Col xs={12} md={6} lg={3}>
                     <div className='flex-center'>
                         <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/policy-price.svg" alt="" className='img-width' width={90} height={90} />
                         <span className='whypolices-subtitle'>İyi Fiyat</span>
@@ -157,7 +157,7 @@ export default function WhyPolices() {
                     </div>
                 </Col>
 
-                <Col xs={12} md={4} lg={3}>
+                <Col xs={12} md={6} lg={3}>
                     <div className='flex-center'>
                         <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/policy-with-you.svg" alt="" className='img-width' width={90} height={90} />
                         <span className='whypolices-subtitle'>7/24 Hizmet</span>
@@ -173,19 +173,25 @@ export default function WhyPolices() {
 
             <Row className='flex-column flex-nowrap text-center'>
                 <h2>Sigortam.net'te sana özel neler var?</h2>
-                <ul className='carousel-lists overflow-x-auto p-5' >
-                    <li role='tab' onClick={() => setSelectTabIndex(0)}
-                        className={selectTabIndex === 0 ? "active-tab" : "p-3"}
-                    >İndirimler & Kampanyalar
-                    </li>
-                    <li role="tab" onClick={() => setSelectTabIndex(1)}
-                        className={selectTabIndex === 1 ? "active-tab" : "p-3"}
-                    >Reklam Filmleri
-                    </li>
-                    <li role='tab' onClick={() => setSelectTabIndex(2)}
-                        className={selectTabIndex === 2 ? "active-tab" : "p-3"}
-                    >Öne Çıkanlar
-                    </li>
+                <ul className='carousel-lists align-items-center' style={{ overflowX: window.innerWidth < 438 ? "auto" : "hidden" }} >
+                    <Col xs={7} sm={4} md={3}>
+                        <li role='tab' onClick={() => setSelectTabIndex(0)}
+                            className={selectTabIndex === 0 ? "active-tab" : ''}
+                        >İndirimler & Kampanyalar
+                        </li>
+                    </Col>
+                    <Col xs={6} sm={3} md={2}>
+                        <li role="tab" onClick={() => setSelectTabIndex(1)}
+                            className={selectTabIndex === 1 ? "active-tab" : ''}
+                        >Reklam Filmleri
+                        </li>
+                    </Col>
+                    <Col xs={6} sm={3} md={2}>
+                        <li role='tab' onClick={() => setSelectTabIndex(2)}
+                            className={selectTabIndex === 2 ? "active-tab" : ''}
+                        >Öne Çıkanlar
+                        </li>
+                    </Col>
                 </ul>
             </Row>
             <Col sm={12} md={12} lg={12} >

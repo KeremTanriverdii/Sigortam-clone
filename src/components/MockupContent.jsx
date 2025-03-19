@@ -6,7 +6,7 @@ import { Button, Col, Row } from 'react-bootstrap';
 function MockupContent() {
     const [opacityAlt, setOpacityAlt] = useState(0);
     const [scaleFirst, setScaleFirst] = useState(1);
-    const [scaleSecond, setScaleSecond] = useState(scaleFirst);
+    const [scaleSecond, setScaleSecond] = useState(null);
     const [visible, setVisible] = useState(true);
 
     useEffect(() => {
@@ -14,14 +14,14 @@ function MockupContent() {
         const handleScroll = () => {
             let scrollY = window.scrollY;
 
-            if (scrollY > 500 && scrollY < 1400) {
-                const scaleValue = 1 - ((scrollY - 500) / (1400 - 500)) * 0.7;
+            if (scrollY > 1400 && scrollY < 2450) {
+                const scaleValue = 1 - ((scrollY - 1400) / (2450 - 1400)) * 0.8;
                 setScaleFirst(scaleValue);
                 setScaleSecond(scaleValue);
                 setOpacityAlt(0);
                 setVisible(true);
-            } else if (scrollY >= 1400) {
-                const scaleGrow = 0.8 + ((scrollY - 1400) / 360) * 0.2;
+            } else if (scrollY >= 2300) {
+                const scaleGrow = 0.5 + ((scrollY - 2450) / 1000) * 0.8;
                 setScaleSecond(scaleGrow)
                 setVisible(false)
                 setOpacityAlt(1);
@@ -37,9 +37,9 @@ function MockupContent() {
             window.removeEventListener('scroll', handleScroll);
         }
     }, [])
-
+    console.log(scaleSecond)
     return (
-        <Row>
+        <Row className='justify-content-center mb-5'>
             <Col xs={12} sm={12} md={10} lg={6}>
                 <div className='cover-box'>
                     <div className='d-block text-center d-lg-none d-flex flex-column gap-3 mb-5'>
@@ -74,9 +74,9 @@ function MockupContent() {
                             />
 
                         </div>
+                        <span className='cover-box-span' >Görseldeki fiyatlar temsilidir. Aracına özel fiyatları tekliflerde görebilirsin.
+                        </span>
                         <div>
-                            <span className='cover-box-span' >Görseldeki fiyatlar temsilidir. Aracına özel fiyatları tekliflerde görebilirsin.
-                            </span>
                         </div>
                     </div>
                     <div className='cover-box-title'>
@@ -96,7 +96,7 @@ function MockupContent() {
             <Col xs={12} sm={12} md={6} lg={6} className='d-none d-lg-block'>
                 <div className='relative-container '>
                     <div className='mockup-container'>
-                        <div >
+                        <div className='d-flex flex-column w-50'>
                             <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/phone-mockup.webp" alt="" />
                             <span className='d-none d-lg-block'>Görseldeki fiyatlar temsilidir. Aracına özel fiyatları tekliflerde görebilirsin.
                             </span>

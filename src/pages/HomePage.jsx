@@ -3,7 +3,6 @@ import { Card } from 'react-bootstrap'
 import WhyPolices from '../components/WhyPolices'
 import Testimonials from '../components/Testimonials'
 import Award from '../components/Award'
-import CompanyCards from '../components/CompanyCards'
 import Section from '../components/Section'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faGift } from '@fortawesome/free-solid-svg-icons'
@@ -16,12 +15,12 @@ export default function HomePage() {
         <div>
             <div className='sticky-card'>
                 <Card >
-                    <Card.Body className='d-flex gap-3 align-items-center justify-content-between '>
-                        <FontAwesomeIcon icon={faGift} style={{ color: '#FFD43B' }} />
-                        <Card.Text className='d-flex align-items-center gap-2 size-text-9'>
+                    <Card.Body className='d-flex gap-2 align-items-center'>
+                        <FontAwesomeIcon icon={faGift} style={{ color: '#FFD43B' }} className='me-auto' />
+                        <span className='mx-auto gap-2 size-text-9'>
                             Arkadaşlarını Davet Et, 20.000 TL’ye varan hediye çeki kazan!
-                            <FontAwesomeIcon icon={faArrowRight} size='lg' />
-                        </Card.Text>
+                        </span>
+                        <FontAwesomeIcon icon={faArrowRight} size='lg' className='ms-auto' />
                     </Card.Body>
                 </Card>
             </div>
@@ -30,7 +29,7 @@ export default function HomePage() {
             <WhyPolices />
             <Testimonials />
             <Award />
-            <CompanyCards />
+            {/* <CompanyCards /> */}
             <Cookie />
         </div>
     )

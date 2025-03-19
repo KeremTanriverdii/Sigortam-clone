@@ -1,9 +1,8 @@
-import { faFacebook, faInstagram, faLinkedin, faSquareXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faArrowDown, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react"
 import { Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import FooterResponsiveNavContent from "./FooterResponsiveNavContent";
+import SocialMedia from "./SocialMedia";
+import FooterNavContent from "./FooterNavContent";
 export default function Footer() {
     // Farklı ekran boyutunda dropdown olması için state oluşturuldu
     const [isWidth, setIsWidth] = useState(window.innerWidth <= 991);
@@ -110,90 +109,28 @@ export default function Footer() {
 
                 <nav className="row">
                     {isWidth ? (
-                        <div className="second">
-                            {footerMenu.map(({ title, subTitle }, index) => (
-                                <Col xs={12} sm={12} md={5}
-                                    key={index}
-                                    onClick={() => toogleCollapse(index)}
-                                    className="d-flex justify-content-center flex-column"
-                                >
-                                    <div className="d-flex justify-content-between  align-items-center">
-                                        <span className="footer-title">{title}</span>
-                                        <FontAwesomeIcon icon={faArrowDown} />
-                                    </div>
-
-                                    {visible === index && (
-                                        <ul className="mt-2 list-unstyled">
-                                            {subTitle.map((item, subIdx) => (
-                                                <Link
-                                                    to={'/hakkimizda'} className="footer-link"
-                                                    key={subIdx}
-                                                >
-                                                    {item.title}
-                                                </Link>
-                                            ))}
-
-                                        </ul>
-                                    )}
-                                </Col>
-                            ))}
-                        </div>
+                        <FooterResponsiveNavContent footerMenu={footerMenu} toogleCollapse={toogleCollapse} visible={visible} />
                     ) :
                         (
                             <Col sm={12} md={6} lg={10} className="second" >
-                                <div className="d-flex gap-5 mt-3">
-                                    {footerMenu.map((item, idx) => (
-                                        <ul className="list-unstyled d-flex flex-column w-100" key={idx}>
-                                            <li>
-                                                <strong>{item.title}</strong>
-                                            </li>
-                                            <li className="d-flex flex-column">
-
-                                                {item.subTitle.map((subItem, subIdx) => (
-                                                    <Link to={'/hakkimizda'} key={subIdx}>{subItem.title}</Link>
-                                                ))}
-
-                                            </li>
-                                        </ul>
-                                    ))}
-                                </div>
+                                <FooterNavContent footerMenu={footerMenu} />
                             </Col>
                         )}
 
                     <Col sm={12} md={6} lg={2} >
-                        <a href="tel:4442400" className="d-flex flex-column first">
-                            <span>Yardımcı olmaya hazırız</span>
-                            <span className="fw-bold">
-                                <FontAwesomeIcon icon={faPhone} /> 444 24 00
-                            </span>
-                        </a>
-                        <div className="mt-4">
-                            {isWidth ? "" : <span className="fw-bold">Bizi Takip edin</span>}
-                            <ul className="d-flex gap-4 mt-3 list-unstyled">
-                                <li><FontAwesomeIcon icon={faFacebook} size="lg" style={{ color: '#000' }} /></li>
-                                <li><FontAwesomeIcon icon={faSquareXTwitter} size="lg" style={{ color: '#000' }} /></li>
-                                <li><FontAwesomeIcon icon={faInstagram} size="lg" style={{ color: '#000' }} /></li>
-                                <li><FontAwesomeIcon icon={faLinkedin} size="lg" style={{ color: '#000' }} /></li>
-                                <li><FontAwesomeIcon icon={faYoutube} size="lg" style={{ color: '#000' }} /></li>
-                            </ul>
-                        </div>
-
-                        <div className="d-flex align-items-center gap-2 mt-5">
-                            <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/brand-signatures/guven-damgasi.svg" alt="Güven Damdası" height={43} width={100} />
-                            <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/brand-signatures/etbis.jfif" alt="Etbis" height={100} width={80} />
-                            <img src="https://cdnsnet.mncdn.com/facelift/assets/img/elements/brand-signatures/ssl.svg" alt=""
-                                height={39} width={31} />
-                        </div>
+                        <SocialMedia isWidth={isWidth} />
                     </Col>
                 </nav>
 
                 <div ><hr /></div>
                 <Row className="mt-5">
+
                     <Col sm={12} md={4} lg={4} xl={3}>
                         <span>Sigortam.net bir </span>
                         <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/ilab@2022.svg" width={69} height={25} alt="" />
                         <span> grup şirketidir.</span>
                     </Col>
+
                     <Col sm={12} md={8} lg={8} xl={9}>
                         <ul className="footer-lists">
                             <li >

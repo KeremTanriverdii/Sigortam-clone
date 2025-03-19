@@ -2,7 +2,6 @@ import { faArrowLeft, faArrowRight, faTrophy } from '@fortawesome/free-solid-svg
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
 import { Card, Carousel, Col, Container, Row } from 'react-bootstrap'
-import Timeline from './Timeline';
 
 export default function About() {
     const carouselItems = [
@@ -34,36 +33,11 @@ export default function About() {
         { name: "Felis 2024", title: "Dijital Oyunlara Ürün - Marka Yerleştirme", trophy: true, icon: <FontAwesomeIcon icon={faTrophy} />, trophyLevel: "Felis" },
 
     ]
-    const timelineItems = [
-        { year: 2000, description: "Sigortam.net kuruldu!" },
-        { year: 2001, description: "Broker Lisansımızı aldık.İlk Online Sigorta Satışımızı Yaptık." },
 
-        { year: 2007, description: "Altın Örümcek Yarışması’nda En İyi Sigortacılık Sitesi ödülü aldık." },
-        { year: 2011, description: "Anel Plazaya taşındık." },
-        { year: 2012, description: "1,5 milyon müşteriye ulaştık." },
-        { year: 2014, description: "İlk TV Reklamımız yayınlandı, Keçi marka maskotu olarak aramıza katıldı." },
-        { year: 2019, description: "Sigortam.net mutlu müşteri sayısı 4,5 milyona ulaştı." },
-        { year: 2020, description: "Sigortam.net kuruldu!" },
-        { year: 2021, description: "Sigortam.net kuruldu!" },
-        { year: 2022, description: "Web sitemizi, marka kimliğimizi, keçimizi ve logomuzu yeniledik. Farklı kategorilerde birbirinden önemli 15 ödül kazandık!" },
-        { year: 2023, description: "İletişimlerimize ve birbirinden önemli ödüller kazanmaya devam ettik!" },
-        { year: 2024, description: "10 milyon mutlu müşteri olduk ve farklı projelerle ödüller kazanmaya devam ettik." },
-        { year: 2025, description: "Sigortam.net, 10 milyon mutlu müşterisi ile 25 yaşında!" }
-    ]
 
 
     const [selectIndex, setSelectIndex] = useState(0);
     const [showControls, setShowControls] = useState(window.innerWidth >= 600);
-    const [selectedYears, setSelectedYears] = useState("");
-
-    const handleYearClick = (year) => {
-        const selectedYear = timelineItems.find(item => item.year === year);
-        if (selectedYear) {
-            setSelectedYears(selectedYear);
-        } else {
-            setSelectedYears("");
-        }
-    }
 
     useEffect(() => {
         const handleResize = () => {
@@ -72,8 +46,6 @@ export default function About() {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     })
-
-    const timelinePoints = timelineItems.map((item) => item.year);
 
     return (
         <div>
@@ -98,51 +70,58 @@ export default function About() {
                     </li>
                 </ul>
 
-                <h1>Reklamlarla Sigortam.net</h1>
-                <div className='mt-5' style={{ overflowX: window.innerWidth < 576 ? "auto" : "hidden" }}>
-                    <div className='d-flex flex-nowrap gap-5 p-3'>
+                <h1 className='text-center mt-4'>Reklamlarla Sigortam.net</h1>
+                <div className='mt-5' >
+                    <ul className='carousel-lists gap-5' style={{ overflowX: window.innerWidth < 576 ? "auto" : "hidden" }}>
 
-                        <Col xs={6} sm={3} md={4} className='flex-shrink-0'
-                            style={{ flexShrink: window.innerWidth < 576 ? "0" : "1" }}>
-                            <div className='d-flex gap-5 align-items-center'>
-                                <Card.Img className='img-fluid' src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/withFigures1.svg' width={50} height={138} />
-                                <span className='w-100'><strong>10 Milyon</strong><br /> Mutlu Müşteri</span>
-                            </div>
+                        <Col xs={8} sm={3} md={3}>
+                            <li>
+                                <div className='d-flex gap-4 align-items-center'>
+                                    <Card.Img className='img-fluid' src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/withFigures1.svg' width={50} height={138} />
+                                    <span className=''><strong>10 Milyon</strong><br /> Mutlu Müşteri</span>
+                                </div>
+                            </li>
                         </Col>
 
-                        <Col xs={6} sm={3} md={4} className='flex-shrink-0'
-                            style={{ flexShrink: window.innerWidth < 576 ? "0" : "1" }}>
-                            <div className='d-flex gap-5 align-items-center'>
-                                <Card.Img className='img-fluid' src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/withFigures2_v1.svg' width={50} height={138} />
-                                <span className='w-100'><strong>~700</strong> Çalışan</span>
-                            </div>
+                        <Col xs={8} sm={3} md={3} >
+                            <li>
+                                <div className='d-flex gap-4 align-items-center'>
+                                    <Card.Img className='img-fluid' src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/withFigures2_v1.svg' width={50} height={138} />
+                                    <span className=''><strong>~700</strong> Çalışan</span>
+                                </div>
+                            </li>
                         </Col>
 
-                        <Col xs={6} sm={3} md={4} className='flex-shrink-0'
-                            style={{ flexShrink: window.innerWidth < 576 ? "0" : "1" }}>
-                            <div className='d-flex gap-5 align-items-center'>
-                                <Card.Img className='img-fluid' src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/withFigures4_25.svg' width={50} height={138} />
-                                <span className='fw-bold w-100'><strong>25 Yıllık</strong> Tecrübe</span>
-                            </div>
+                        <Col xs={8} sm={3} md={3}>
+                            <li>
+                                <div className='d-flex gap-4 align-items-center'>
+                                    <Card.Img className='img-fluid' src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/withFigures4_25.svg' width={50} height={138} />
+                                    <span className=''><strong>25 Yıllık</strong> Tecrübe</span>
+                                </div>
+                            </li>
                         </Col>
-                    </div>
+                    </ul>
                 </div>
             </Container>
 
-            <div style={{ backgroundColor: "#F5F7F9" }} className='mt-5'>
+            <div style={{ backgroundColor: "#F5F7F9" }}>
                 <Container>
-                    <Row className='align-items-center flex-wrap' >
-                        <Col xs={12} md={6} className='d-flex'>
-                            <img src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/goat-arena-3-v1.webp'
-                                className='img-fluid' />
-                        </Col>
+                    <div >
+                        <div className='yesterday-to'>
+                            <div className='yesterday-to-img pe-4 '>
+                                <img src='https://cdnsnet.mncdn.com/facelift/assets/img/elements/static-pages/about-us/goat-arena-3-v1.webp'
+                                    className='mobile-image' />
+                            </div>
 
-                        <Col xs={12} md={6} className='now-text' >
-                            <h3>Dünden Bugüne</h3>
-                            <p>2000 yılında iLab Grup’un bir parçası olarak kurulan, Türkiye’nin ilk ve lider dijital sigorta platformu Sigortam.net, 10 milyon müşterisi, 20’den fazla anlaşmalı sigorta şirketi ve 700’e yakın çalışanıyla müşteri ihtiyaçlarını en iyi şekilde karşılayabilecek teknolojilere yatırım yaparak, ‘müşterinin şampiyonu’ olma hedefiyle hizmet vermeye devam etmektedir. Sigortam.net, Kasko, Zorunlu Trafik Sigortası, Tamamlayıcı Sağlık Sigortası, Özel Sağlık Sigortası, DASK ve Konut Sigortası ihtiyaçlarında müşterilerine en iyi sigorta tekliflerini sunmasının yanı sıra, alınan teklifleri de karşılaştırarak müşterilerinin en uygun seçeneklerle buluşmasını sağlamaktadır. Ayrıca satın alma ve satış sonrası süreçlerde de 7/24 danışmanlık hizmetiyle müşterilerinin yanında olan Sigortam.net, dijitalleşme kapsamında teknolojiyi ve insan tecrübesini bir araya getirerek ilerlemektedir. Sigortam.net, değişen müşteri ihtiyaçları doğrultusunda ürün ve hizmetlerini her geçen gün genişletmekte, nitelikli insan kaynağına yatırım yapmakta, daha teknolojik ve dijital dünyanın hızına uyacak şekilde gelişerek büyümesini her geçen gün sürdürmektedir. 2013 yılından beri Sigortam.net Basketbol Takımının isim sponsorudur.</p>
-                        </Col>
-                    </Row>
+                            <div >
+                                <div className='now-title'>Dünden Bugüne</div>
+                                <span>2000 yılında iLab Grup’un bir parçası olarak kurulan, Türkiye’nin ilk ve lider dijital sigorta platformu Sigortam.net, 10 milyon müşterisi, 20’den fazla anlaşmalı sigorta şirketi ve 700’e yakın çalışanıyla müşteri ihtiyaçlarını en iyi şekilde karşılayabilecek teknolojilere yatırım yaparak, ‘müşterinin şampiyonu’ olma hedefiyle hizmet vermeye devam etmektedir. Sigortam.net, Kasko, Zorunlu Trafik Sigortası, Tamamlayıcı Sağlık Sigortası, Özel Sağlık Sigortası, DASK ve Konut Sigortası ihtiyaçlarında müşterilerine en iyi sigorta tekliflerini sunmasının yanı sıra, alınan teklifleri de karşılaştırarak müşterilerinin en uygun seçeneklerle buluşmasını sağlamaktadır. Ayrıca satın alma ve satış sonrası süreçlerde de 7/24 danışmanlık hizmetiyle müşterilerinin yanında olan Sigortam.net, dijitalleşme kapsamında teknolojiyi ve insan tecrübesini bir araya getirerek ilerlemektedir. Sigortam.net, değişen müşteri ihtiyaçları doğrultusunda ürün ve hizmetlerini her geçen gün genişletmekte, nitelikli insan kaynağına yatırım yapmakta, daha teknolojik ve dijital dünyanın hızına uyacak şekilde gelişerek büyümesini her geçen gün sürdürmektedir. 2013 yılından beri Sigortam.net Basketbol Takımının isim sponsorudur.</span>
+                            </div>
 
+                        </div>
+                    </div>
+                </Container>
+                <Container>
                     <Row className='position-relative' style={{ marginTop: "10vh" }}>
                         <div className='year-container'>
                             <div className='year'>2000</div>
@@ -182,7 +161,7 @@ export default function About() {
             </div>
 
             <Container>
-                <Row className='justify-content-center align-items-center'>
+                <Row className=''>
                     <Col xs={12} md={8} >
                         <div className='labgroup-box' >
                             <h3>iLab Group</h3>

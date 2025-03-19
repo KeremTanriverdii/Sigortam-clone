@@ -5,9 +5,10 @@ import { Button, Col, Dropdown, Nav, Row } from 'react-bootstrap';
 
 export default function DropdownContent({ items, height }) {
     const dropdownItems = items;
+
     return (
-        <div className='d-flex w-100 '>
-            <Nav className='ms-auto d-flex align-items-center '>
+        <div className='d-flex w-100'>
+            <Nav className='ms-auto d-flex justify-content-center align-items-center '>
                 <Dropdown className='hover-underline-animation '>
                     <Dropdown.Toggle
                         variant='outline-black'

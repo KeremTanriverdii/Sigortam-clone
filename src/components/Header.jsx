@@ -13,7 +13,6 @@ export default function Header() {
     const [isHeight, setIsHeight] = useState(false)
     const [showNavbarResponsiveContent, setShowNavbarResponsiveContent] = useState(window.innerWidth < 991.98);
 
-
     useEffect(() => {
 
         const handleResize = () => {
@@ -79,12 +78,12 @@ export default function Header() {
                 <Navbar.Brand href='/' >
                     <div>
                         <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/app-logo-goat.svg" alt="" width={20} height={21} />
-                        <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/app-logo-title.svg" alt="" width={130} height={50} />
+                        <img src="https://cdnsnet.mncdn.com/facelift/assets/img/core/logo/app-logo-title.svg" alt="" width={110} height={50} />
                     </div>
                 </Navbar.Brand>
                 <Nav >
                     {showNavbarResponsiveContent &&
-                        <div className='d-flex align-items-center '>
+                        <div className='d-flex align-items-center'>
                             <Button >
                                 <span className=''>Giriş Yap</span>
                             </Button>
@@ -105,7 +104,7 @@ export default function Header() {
 
                     </Offcanvas.Header>
 
-                    <div className='d-flex '>
+                    <div className='d-flex justify-content-center'>
                         {isCollapse ? <OffcanvasContent items={dropdownItems} /> : <DropdownContent items={dropdownItems} height={isHeight} />}
                     </div>
 
